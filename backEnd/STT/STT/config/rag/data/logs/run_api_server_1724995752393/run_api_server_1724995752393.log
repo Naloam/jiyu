@@ -1,0 +1,9 @@
+2024-08-30 13:29:28,789 faiss.loader 17112 INFO     Loading faiss with AVX2 support.
+2024-08-30 13:29:28,795 faiss.loader 17112 INFO     Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2024-08-30 13:29:28,798 faiss.loader 17112 INFO     Loading faiss.
+2024-08-30 13:29:28,921 faiss.loader 17112 INFO     Successfully loaded faiss.
+2024-08-30 13:29:44,018 httpx        17112 INFO     HTTP Request: POST http://60c9940.r7.cpolar.top/v1/embeddings "HTTP/1.1 200 OK"
+2024-08-30 13:29:45,180 httpx        17112 INFO     HTTP Request: POST http://60c9940.r7.cpolar.top/v1/embeddings "HTTP/1.1 200 OK"
+2024-08-30 13:29:47,628 httpx        17112 INFO     HTTP Request: POST http://60c9940.r7.cpolar.top/v1/embeddings "HTTP/1.1 200 OK"
+2024-08-30 13:29:50,011 httpx        17112 INFO     HTTP Request: POST http://60c9940.r7.cpolar.top/v1/chat/completions "HTTP/1.1 200 OK"

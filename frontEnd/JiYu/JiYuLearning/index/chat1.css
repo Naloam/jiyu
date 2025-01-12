@@ -1,0 +1,516 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-image: url('../src/img/bg.jpg'); /* 替换为你的背景图片路径 */
+    background-size: cover; /* 背景图片覆盖整个页面 */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+    background-position: center center; /* 背景图片居中显示 */
+    background-attachment: fixed; /* 背景图片固定，页面滚动时不会移动 */
+}
+
+/* 基本 toolbar 样式 */
+/* 基本 toolbar 样式 */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* 纯白色背景 */
+    border-bottom: 2px solid #ddd; /* 底部下划线 */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1200;
+    margin-bottom: 10px;
+}
+
+/* 新添加的图片元素样式 */
+.toolbar-logo {
+    width: 8vw; /* 设置图片宽度为屏幕宽度的10% */
+    height: 3vw; /* 设置图片高度为toolbar高度的80% */
+    object-fit: contain; /* 确保图片在设定的大小内保持比例 */
+    margin-left: 10%; /* 调整图片距离左边的距离 */
+    /* 或者使用 margin-right: 20px; 来调整图片距离右边的距离 */
+}
+
+.username-display {
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a17db; /* 根据你的主题色调调整颜色 */
+    margin-top: -10px; /* 上移用户名 */
+    display: inline-block; /* 保证margin-top有效 */
+    vertical-align: middle; /* 与其他元素垂直对齐 */
+}
+
+
+/* 工具栏中的按钮样式 */
+.toolbar .buttons {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start; /* 按钮靠左对齐 */
+}
+
+.toolbar .buttons button {
+    background: none; /* 去掉背景色 */
+    border: none; /* 去掉边框 */
+    color: #333; /* 按钮文字颜色 */
+    font-size: 18px; /* 调整字体大小为18px */
+    font-weight: bold; /* 文字加粗 */
+    cursor: pointer; /* 鼠标悬停时显示为手型 */
+    padding: 10px 15px; /* 调整按钮的内边距 */
+    position: relative; /* 为伪元素定位 */
+    transition: color 0.3s; /* 仅添加字体颜色过渡效果 */
+}
+
+.toolbar .buttons button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* 下划线位置 */
+    width: 0;
+    height: 2px;
+    background-color: #007bff; /* 下划线颜色 */
+    transition: width 0.3s ease-in-out; /* 动画效果 */
+}
+
+.toolbar .buttons button:hover {
+    color: #007bff; /* 悬停时文字颜色 */
+}
+
+.toolbar .buttons button:hover::after {
+    width: 100%; /* 悬停时下划线展开 */
+}
+
+
+/* 下拉栏容器 */
+.dropdown-container {
+    position: relative;
+    z-index: 1200; /* 确保下拉栏在其他元素之上 */
+}
+
+/* 下拉菜单 */
+.dropdown-menu {
+    position: fixed; /* 相对于屏幕固定 */
+    top: calc(var(--toolbar-height) - 10px); /* 紧贴着 toolbar 的底部 */
+    left: 10vw; /* 从屏幕宽度的10%开始 */
+    width: 80vw; /* 占据屏幕宽度的80% */
+    background-color: white;
+    border-bottom: 2px solid #ddd; /* 与 toolbar 一致的边框 */
+    border-top: none; /* 去掉上边框 */
+    display: none; /* 默认隐藏 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1199; /* 保持在 dropdown-container 之下 */
+    padding: 1px;
+}
+
+/* 中心对齐下拉菜单中的按钮 */
+.dropdown-buttons {
+    display: flex;
+    justify-content: center; /* 按钮居中 */
+    gap: 40px; /* 调整按钮之间的间距 */
+}
+
+/* 下拉菜单中的按钮样式 */
+.learn-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.learn-btn .description {
+    display: block;
+    font-size: 10px;
+    color: gray;
+    margin-top: 5px;
+}
+
+.learn-btn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 从中间向四周的阴影效果 */
+}
+
+
+/* 保持下拉栏显示 */
+.dropdown-container:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    animation: slideDown 0.3s forwards;
+}
+
+/* 鼠标移走时隐藏下拉菜单 */
+.dropdown-container:not(:hover) .dropdown-menu:not(:hover) {
+    animation: slideUp 0.3s forwards;
+}
+
+/* 下拉动画 */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+
+
+/* 保持 settings 部分的样式 */
+.toolbar .settings {
+    position: absolute;
+    right: 10%; /* 距离屏幕最右侧5% */
+    text-align: right;
+    z-index: 1001; /* 确保在其他元素之上 */
+}
+
+.toolbar .settings img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: filter 0.3s, background-color 0.3s;
+}
+
+/* 修改 sidebar 样式 */
+.sidebar {
+    height: 100%;
+    width: 10%; /* 调整宽度 */
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(233, 232, 255); /* 设置为纯白色背景 */
+    color: #333; /* 设置文字颜色为深灰色 */
+    padding: 20px;
+    display: none;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    border-left: 2px solid #ddd; /* 添加左边界线，与 toolbar 的底部线条匹配 */
+}
+
+.sidebar.open {
+    display: block;
+    transform: translateX(0);
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    color: #333; /* 标题颜色 */
+    font-size: 20px; /* 标题字体大小 */
+    border-bottom: 2px solid #ddd; /* 添加下划线 */
+    padding-bottom: 10px; /* 标题下方的内边距 */
+}
+
+/* 修改 sidebar 中按钮的样式 */
+.sidebar button {
+    width: 100%; /* 按钮宽度占满父容器 */
+    padding: 12px; /* 调整按钮的内边距 */
+    margin-bottom: 12px; /* 调整按钮之间的间距 */
+    background: none; /* 去掉背景色 */
+    color: #333; /* 按钮文字颜色 */
+    border: none; /* 去掉边框 */
+    font-size: 18px; /* 按钮字体大小 */
+    font-weight: bold; /* 文字加粗 */
+    cursor: pointer; /* 鼠标悬停时显示为手型 */
+    text-align: left; /* 文字左对齐 */
+    position: relative; /* 为伪元素定位 */
+    transition: color 0.3s; /* 添加过渡效果，仅变色 */
+}
+
+.sidebar button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* 下划线位置 */
+    width: 0;
+    height: 2px;
+    background-color: #007bff; /* 下划线颜色 */
+    transition: width 0.3s ease-in-out; /* 动画效果 */
+}
+
+.sidebar button:hover {
+    background: none; /* 移除背景色 */
+    color: #007bff; /* 悬停时文字颜色 */
+}
+
+.sidebar button:hover::after {
+    width: 100%; /* 悬停时下划线展开 */
+}
+
+/* 修改“退出登录”按钮的样式 */
+.sidebar .logout {
+    background: none; /* 移除背景色 */
+    color: #333; /* 字体颜色为红色 */
+    border: none; /* 去除边框 */
+    font-size: 18px; /* 字体大小 */
+    font-weight: bold; /* 文字加粗 */
+    cursor: pointer; /* 鼠标悬停时显示为手型 */
+    text-align: left; /* 文字左对齐 */
+    position: relative; /* 为伪元素定位 */
+    transition: color 0.3s; /* 添加过渡效果，仅变色 */
+}
+
+.sidebar .logout::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* 下划线位置 */
+    width: 0;
+    height: 2px;
+    background-color: #fc3535; /* 下划线颜色 */
+    transition: width 0.3s ease-in-out; /* 动画效果 */
+}
+
+.sidebar .logout:hover {
+    color: #fc3535; /* 悬停时字体颜色变深 */
+}
+
+.sidebar .logout:hover::after {
+    width: 100%; /* 悬停时下划线展开 */
+}
+
+
+
+.chat-container {
+    width: 20%; /* 设置为页面宽度的20% */
+    height: 85%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: fixed;
+    top: 10%;
+    z-index: 1001;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    opacity: 0; /* 初始透明度为0 */
+    transform: scale(0.8); /* 初始缩放为0.8倍 */
+    animation: fadeInScale 0.5s forwards; /* 动画效果 */
+    transition: all 0.3s ease;
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.chat-container.fullscreen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+    z-index: 2000;
+}
+
+.chat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+}
+
+
+.chat-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.chat-window {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.message {
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.bot-message {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.message p {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message p {
+    background-color: #28a745;
+}
+
+.input-container {
+    display: flex;
+    padding: 5px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 欢迎框 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffe0; /* 添加淡颜色背景 */
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    width: 80%;
+    max-width: 300px;
+    margin: auto;
+    overflow-y: auto; /* 如果内容超过高度，启用垂直滚动条 */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* 为所有类型为 text 和 password 的输入框设置样式 */
+input[type="text"], input[type="password"] {
+    width: calc(100% - 40px); /* 设置输入框宽度，相对于父容器的百分比宽度减去左右各20px的内边距 */
+    padding: 10px; /* 为输入框设置内边距，确保用户输入时有足够的空间 */
+    margin: 10px 0; /* 在输入框上下设置间距，使它们之间保持一定的距离 */
+    box-sizing: border-box; /* 使用 box-sizing: border-box; 确保 padding 和 border 不会增加元素的宽度 */
+    border: 1px solid #ccc; /* 为输入框设置边框 */
+    border-radius: 4px; /* 为输入框设置圆角 */
+    font-size: 16px; /* 设置字体大小 */
+    display: block; /* 让每个输入框独占一行 */
+    margin: 10px auto; /* 让输入框居中 */
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    display: block;
+    margin: 10px auto;
+}
+
+
+/* 为“设置查看软件使用指南”设置单独的字体颜色 */
+#guideText {
+    color: #FF4500; /* 橙红色，可以根据需要修改 */
+    font-weight: bold; /* 可选，使文本加粗 */
+}
+
+/* 大模型输出等待 */
+@keyframes dot-flashing {
+    0% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    background-color: #888;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    animation: dot-flashing 1s infinite linear alternate;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+

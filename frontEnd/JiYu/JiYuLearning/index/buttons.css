@@ -1,0 +1,149 @@
+/* 悬浮框基本样式 */
+.overlay {
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 2000;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* 初始透明度为0 */
+    transform: scale(0.95); /* 初始缩小 */
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 垂直排列内容 */
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+}
+
+/* 打开动画 */
+.fade-in {
+    animation: fadeIn 0.3s forwards;
+}
+
+/* 关闭动画 */
+.fade-out {
+    animation: fadeOut 0.3s forwards;
+}
+
+/* 淡入效果 */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* 最终透明度为1 */
+        transform: scale(1); /* 最终大小恢复正常 */
+    }
+}
+
+/* 淡出效果 */
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* 初始透明度为1 */
+        transform: scale(1); /* 初始大小正常 */
+    }
+    to {
+        opacity: 0; /* 最终透明度为0 */
+        transform: scale(0.95); /* 最终缩小 */
+    }
+}
+
+/* 标题样式 */
+h2 {
+    font-size: 2em;
+    margin: 0; /* 清除默认的上下边距 */
+    padding: 10px 0; /* 添加顶部和底部的内边距 */
+    text-align: center; /* 水平居中 */
+    width: 100%; /* 确保标题占据整个宽度 */
+    border-bottom: 2px solid #ccc; /* 如果需要分隔线 */
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 0; /* 清除默认的上下边距 */
+    padding: 10px 0; /* 添加顶部和底部的内边距 */
+    text-align: center; /* 水平居中 */
+    width: 100%; /* 确保标题占据整个宽度 */
+    border-bottom: 2px solid #ccc; /* 如果需要分隔线 */
+}
+
+/* 确保内容在悬浮框内居中 */
+.content-box {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+
+/* 学习资料悬浮窗样式 */
+#materialsModel {
+    display: none; /* 默认隐藏悬浮窗 */
+    position: fixed;
+    z-index: 5000; /* 确保悬浮窗在页面最上层 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景半透明黑色 */
+}
+
+.model-content {
+    background-color: #fff;
+    margin: 16% auto; /* 上下左右居中 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 45%; /* 设置宽度，可以根据需要调整 */
+    height: 150px; /* 缩小悬浮框的高度 */
+    border-radius: 10px; /* 圆角边框 */
+    position: relative; /* 确保关闭按钮能正确定位 */
+    text-align: center; /* 内容居中 */
+}
+
+.close1 {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center; /* 标题居中 */
+}
+
+.material-btn {
+    background-color: #275dae; /* 绿色背景 */
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 5px; /* 按钮之间的间距 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px; /* 按钮圆角 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.material-btn:hover {
+    background-color: #333c9f; /* 鼠标悬停时的背景色 */
+}
+
+/* 横向居中排列按钮 */
+.model-content .material-btn {
+    display: inline-block;
+    margin: 10px 15px; /* 控制按钮之间的距离 */
+}
+

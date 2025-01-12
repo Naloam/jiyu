@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url(../src/img/bg_login.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px); /* 一开始就应用模糊效果 */
+    transition: filter 0.5s ease;
+}
+body::after
+{
+    content:'';
+    position: absolute;
+    inset: 0;
+    background: url(../src/img/bg_login.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+body.signup::after
+{
+    opacity: 1;
+}
+body.clear-bg::before {
+    filter: blur(0); /* 清除模糊效果 */
+}
+
+.intro-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 1001;
+}
+
+@keyframes moveToCenter {
+    0% {
+        transform: translateY(300px); /* 初始位置在页面底部300px */
+    }
+    100% {
+        transform: translateY(10px); /* 最终位置在页面中央往上 px */
+    }
+}
+
+@keyframes breathing {
+    0% {
+        filter: brightness(0.8) blur(2px); /* 模糊状态 */
+        color: #302a2ac4; /* 第一阶段颜色：红色 */
+    }
+    33% {
+        filter: brightness(1) blur(0); /* 标准状态 */
+        color: #dede3b; /* 第二阶段颜色：绿色 */
+    }
+    66% {
+        filter: brightness(1.2) blur(0); /* 明亮状态 */
+        color: #4cc0fa; /* 第三阶段颜色：蓝色 */
+    }
+    100% {
+        filter: brightness(0.8) blur(2px); /* 回到模糊状态 */
+        color: #302a2ac4; /* 回到第一阶段颜色：红色 */
+    }
+}
+
+.intro-overlay p {
+    font-size: 2em;
+    color: #302a2ac4;
+    opacity: 1;
+    font-family: 'CustomFont', sans-serif; /* 使用本地字体 */
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: moveToCenter 1s ease forwards; /* 移动到中央 */
+}
+
+body.breathing .intro-overlay p {
+    animation: breathing 1.5s infinite; /* 应用呼吸动画，1.5秒为一个循环 */
+}
+
+
+.container {
+    position: relative;
+    width: 350px;
+    height: 340px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: 0.5s;
+    overflow: hidden;
+    display: none; /* 初始隐藏 */
+}
+
+body.signup .container {
+    height: 440px;
+}
+.container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 10%, transparent 10%, transparent 80%, #45f3ff 100%);
+    border-radius: 20px;
+    animation: animate 2.5s linear infinite;
+}
+body.signup .container::before {
+    filter: hue-rotate(140deg);
+}
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes animate {
+    0% { --a: 0deg }
+    100% { --a: 360deg }
+}
+.container span {
+    position: absolute;
+    inset: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.container span::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: url(../src/img/bg_login.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+}
+.container span::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: url(../src/img/bg_login.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+}
+body.signup .container span::before,
+body.signup .container span::after {
+    background: url(../src/img/bg_login.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+}
+form {
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    transition: 0.5s;
+}
+form#signupForm {
+    left: -100%;
+}
+body.signup form#signinForm {
+    left: -100%;
+}
+body.signup form#signupForm {
+    left: 0%;
+}
+form h2 {
+    position: relative;
+    color: #fff;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+form .inputBox {
+    position: relative;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+form .inputBox a {
+    color: #b31414;
+    text-decoration: none;
+    font-size: 0.85em;
+}
+form .inputBox a:nth-child(2) {
+    color: #45f3ff;
+    text-decoration: underline;
+}
+form .inputBox input {
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(0,0,0,0.15);
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: #fff;
+}
+form .inputBox input::placeholder {
+    color: rgba(0,0,0,0.5);
+}
+form .inputBox input[type="submit"] {
+    background-color: #2196f3;
+    font-weight: 500;
+    cursor: pointer;
+}
+form#signupForm .inputBox input[type="submit"] {
+    background-color: #f4242f;
+}
+form#signupForm b {
+    font-weight: 500;
+    color: #2837d7;
+    text-decoration: underline;
+}

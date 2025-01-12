@@ -1,0 +1,133 @@
+
+
+/* 扩大悬浮框的样式 */
+.modalC {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 5000;
+    box-sizing: border-box;
+    display: none; /* 初始时隐藏 */
+}
+.overlayC {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    z-index: 4000; /* 比 modalC 的 z-index 低，但高于其他内容 */
+    display: none; /* 初始隐藏 */
+}
+
+/* 背景模糊的样式 */
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+/* 右上角关闭按钮的样式 */
+.modalC .close-button {
+    color: #aaa; /* 初始颜色 */
+    position: absolute; /* 绝对定位 */
+    top: 5px; /* 距离顶部10px */
+    right: 5px; /* 距离右侧20px */
+    font-size: 15px; /* 字体大小28px */
+    font-weight: bold; /* 字体加粗 */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.modalC .close-button:hover,
+.modalC .close-button:focus {
+    color: black; /* 悬停或聚焦时颜色变为黑色 */
+    text-decoration: none; /* 去除下划线等装饰 */
+}
+
+
+/* 摄像头视频样式 */
+.modalC video {
+    width: 100%;
+    height: auto;
+}
+
+/* 上传部分的样式 */
+.modalC .upload-section {
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* 圆角矩形textarea的样式 */
+.modalC .upload-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 8px; /* 圆角 */
+    border: 2px solid #ccc; /* 增大边框 */
+}
+
+/* 文本计数的样式 */
+.modalC .upload-section .text-count {
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+ 
+/* 按钮容器样式 */
+.modalC .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* 按钮的样式 */
+.modalC .button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 加载框和遮罩层的样式 */
+.loading-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    z-index: 1100;
+    text-align: center;
+    pointer-events: auto; /* 允许点击加载框 */
+}
+
+/* 全屏遮罩层的样式 */
+.loading-overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    z-index: 1000; /* 比加载框低，但比其他内容高 */
+    pointer-events: none; /* 阻止所有点击事件传递 */
+}

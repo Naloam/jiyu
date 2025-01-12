@@ -1,0 +1,35 @@
+.img {
+    width: 70px;
+    height: 100px;
+    bottom: 5%;
+    right:5%;
+    padding: 0%;
+    position: absolute;
+    background-image: url('../src/img/pet_jiyu.jpg');
+    background-size: cover;
+    z-index: 100;
+}
+
+.dialog {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* 初始隐藏 */
+
+
+    .typing {
+        width: 20ch;
+        /*text-wrap: nowrap;*/
+        overflow: hidden;
+        animation: typing 2s steps(20);
+        /* infinite alternate-reverse */
+    }
+
+    @keyframes typing {
+        from {
+            width: 0ch;
+        }
+    }
+}

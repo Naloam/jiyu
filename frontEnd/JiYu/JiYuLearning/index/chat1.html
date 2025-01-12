@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>积语伴学 您学习路上的好伴侣</title>
+    <link rel="stylesheet" href="chat1.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="correction.css">
+<!--    桌宠的link-->
+    <link rel="stylesheet" href="deskPet.css">
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+</head>
+<body>
+    <div class="toolbar">
+        <img src="../src/img/bg_jiyu.png" alt="Logo" class="toolbar-logo">
+        <div class="buttons">
+            <button id="btnDailyJi">每日刷题</button>
+            <button id="normalButton">智能问答</button>
+            <div class="dropdown-container">
+                <button id="btnToDoList">事项规划</button>
+                <div class="dropdown-menu" id="dropdownMenu_2">
+                    <div class="dropdown-buttons">
+                        <button class="learn-btn">
+                            事项清单
+                            <span class="description">坚持就是胜利！</span>
+                        </button>
+                        <button class="learn-btn">
+                            自定义事项
+                            <span class="description">根据学习路线合理分配您的时间</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button id="btnMaterials">学习资料</button>
+            <button id="expAndPoint">经验值与奖励</button>
+            <div class="dropdown-container">
+                <button id="btnLearn">个性化学习</button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-buttons">
+                        <button class="learn-btn">
+                            费曼学习法
+                            <span class="description">用自己的语言解释所学知识来加深理解和记忆</span>
+                        </button>
+                        <button class="learn-btn">
+                            智能规划
+                            <span class="description">让AI来帮您定制学习路线吧！</span>
+                        </button>
+                        <button class="learn-btn">
+                            敬请期待
+                            <span class="description">敬请期待多种学习方法</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button id="btnCorrection">批改订正</button>
+        </div>
+        <div class="settings">
+            <span id="usernameDisplay" class="username-display"></span>
+            <img src="../src/img/settings.png" alt="Settings Icon" id="settingsBtn">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Settings</h2>
+        <button>使用指南</button>
+        <button>账号信息</button>
+        <button>知识库</button>
+        <button class="logout">退出登录</button>
+    </div>
+
+    <!-- 下面是添加的 欢迎框 模态框代码 -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p id="welcomeMessage"></p>
+            <p><span id="guideText">可以先在设置查看软件使用指南</span></p>
+        </div>
+    </div>
+
+    <!-- 更多学习方法悬浮框 -->
+    <div id="learnMoreModal" class="modal">
+        <div class="modal-content">
+            <span id="closeLearnMoreModal" class="close">&times;</span>
+            <p>更多学习方法请敬请期待!</p>
+        </div>
+    </div>
+
+    <!-- 批改上传框 -->
+    <div class="modalC">
+        <button class="close-button">X</button>
+        <div class="upload-section">
+            <label for="question-input">上传题目</label>
+            <textarea id="question-input"></textarea>
+            <button class="clear-button">清空</button>
+            <button class="confirm-button">确认</button>
+        </div>
+        <div class="upload-section">
+            <label for="answer-input">上传答案</label>
+            <textarea id="answer-input"></textarea>
+            <button class="clear-button">清空</button>
+            <button class="confirm-button">确认</button>
+        </div>
+    </div>
+    
+    <!-- 学习资料悬浮窗 -->
+    <div id="materialsModel" class="model">
+        <div class="model-content">
+            <span id="closeMaterialsModel" class="close1">&times;</span>
+            <h3>学习资料</h3>
+            <button class="material-btn" data-url="https://jc.pep.com.cn/">教材全解</button>
+            <button class="material-btn" data-url="http://www.xxszxw.net/Item/16134.aspx">知识点总结</button>
+            <button class="material-btn" data-url="http://www.xxszxw.net/Item/16136.aspx">解题技巧</button>
+            <button class="material-btn" data-url="http://www.xxszxw.net/Item/13836.aspx">数学公式大全</button>
+        </div>
+    </div>
+
+    <div id="parentDiv">
+        <div class="img" id="mypet">
+        </div>
+    </div>
+
+    <div>
+        <link rel="stylesheet" href="#">
+    </div>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script type="module" src="chat1.js"></script>
+    <script type="module" src="chatWindow.js"></script>
+    <script type="module" src="sendMessage.js"></script>
+    <script type="module" src="sidebar.js"></script>
+    <script type="module" src="sidebarButtons.js"></script>
+    <script type="module" src="correction.js"></script>
+    <script type="module" src="studyMaterials.js"></script>
+    <script type="module" src="hisotryMessage.js"></script>
+
+    <script src="deskPet.js"></script>
+
+</body>
+</html>

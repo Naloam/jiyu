@@ -1,0 +1,1 @@
+2024-08-30 12:51:41,362 httpx        30740 INFO     HTTP Request: GET http://127.0.0.1:7861/tools "HTTP/1.1 200 OK"

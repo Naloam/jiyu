@@ -1,0 +1,182 @@
+* {
+    margin: 0%;
+    padding: 0;
+    color: black;
+}
+
+#username{
+    color: black;
+}
+
+#password{
+    color: black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: aliceblue;
+    background: url("../src/img/bg.jpg");
+    background-size: cover;
+    /* 背景图片覆盖整个页面 */
+    background-repeat: no-repeat;
+    /* 背景图片不重复 */
+    background-position: center center;
+    /* 背景图片居中显示 */
+    background-attachment: fixed;
+    /* 背景图片固定，页面滚动时不会移动 */
+}
+
+.login {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 450px;
+    background-color: aqua;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(33, 44, 55, .3);
+    overflow: hidden;
+    z-index: 100;
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: 400;
+    z-index: 100;
+    opacity: 60%;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(7, 7, 7);
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+    z-index: 100;
+    opacity: 90%;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(7, 7, 7);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    z-index: 100;
+}
+
+input {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    background-color: aqua;
+    opacity: 35%;
+    border: none;
+    border-bottom: 2px solid;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    bottom: 10px;
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(81, 169, 247);
+}
+
+button {
+    position: relative;
+    background-color: transparent;
+    width: 180px;
+    height: 36px;
+    overflow: hidden;
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    z-index: 100;
+    padding: 0.75em 1em;
+    color: #6ca8f0;
+    border: 0.15em solid #6ca8f0;
+    transition: 4s;
+}
+
+button::before,
+button::after {
+    content: "";
+    position: absolute;
+    top: -1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: aqua;
+    transition: 4s;
+}
+
+button::before {
+    left: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+}
+
+button::after {
+    right: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-390deg);
+}
+
+button:hover,
+button:focus {
+    color: white;
+}
+
+button:hover::before,
+button:hover::after,
+button:focus::before,
+button:focus::after {
+    transform: none;
+    background-color: aqua;
+}
+
+span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    /* border-radius: 50%; */
+    transform: translate(-50%, -50%);
+    background-image: url('./jiyu.jpg');
+    z-index: 0;
+}
+
+@keyframes in {
+    0% {
+        height: 0;
+        width: 0;
+    }
+    100% {
+        width: 1200px;
+        height: 1200px;
+    }
+}
+
+@keyframes out {
+    0% {
+        width: 1200px;
+        height: 1200px;
+    }
+    100% {
+        height: 0;
+        width: 0;
+    }
+}

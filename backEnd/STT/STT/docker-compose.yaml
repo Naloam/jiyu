@@ -1,0 +1,14 @@
+version: '3.0'
+services:
+
+
+  postgresql:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRESQL_PASSWORD: root
+    volumes:
+      - ./script/postgresql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "15432:5432"

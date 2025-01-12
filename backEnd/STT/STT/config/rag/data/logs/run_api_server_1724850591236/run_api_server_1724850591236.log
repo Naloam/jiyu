@@ -1,0 +1,23 @@
+2024-08-28 21:10:16,917 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:16,919 openai._base_client 13640 INFO     Retrying request to /embeddings in 0.945175 seconds
+2024-08-28 21:10:18,156 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:18,158 openai._base_client 13640 INFO     Retrying request to /embeddings in 1.745779 seconds
+2024-08-28 21:10:20,200 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:20,203 openai._base_client 13640 INFO     Retrying request to /embeddings in 3.129027 seconds
+2024-08-28 21:10:23,661 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:23,663 chatchat.server.localai_embeddings 13640 WARNING  Retrying chatchat.server.localai_embeddings.embed_with_retry.<locals>._embed_with_retry in 4.0 seconds as it raised InternalServerError: no healthy upstream.
+2024-08-28 21:10:27,956 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:27,957 openai._base_client 13640 INFO     Retrying request to /embeddings in 0.826447 seconds
+2024-08-28 21:10:29,116 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:29,117 openai._base_client 13640 INFO     Retrying request to /embeddings in 1.806716 seconds
+2024-08-28 21:10:31,227 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:31,230 openai._base_client 13640 INFO     Retrying request to /embeddings in 3.998792 seconds
+2024-08-28 21:10:35,556 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:35,558 chatchat.server.localai_embeddings 13640 WARNING  Retrying chatchat.server.localai_embeddings.embed_with_retry.<locals>._embed_with_retry in 4.0 seconds as it raised InternalServerError: no healthy upstream.
+2024-08-28 21:10:39,867 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:39,869 openai._base_client 13640 INFO     Retrying request to /embeddings in 0.865586 seconds
+2024-08-28 21:10:41,036 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:41,037 openai._base_client 13640 INFO     Retrying request to /embeddings in 1.941074 seconds
+2024-08-28 21:10:43,262 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"
+2024-08-28 21:10:43,263 openai._base_client 13640 INFO     Retrying request to /embeddings in 3.868787 seconds
+2024-08-28 21:10:47,433 httpx        13640 INFO     HTTP Request: POST https://adweabgv.cloud.sealos.io/v1/embeddings "HTTP/1.1 503 Service Unavailable"

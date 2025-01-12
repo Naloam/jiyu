@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lilpet_test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            /* 确保 body 占满整个视口高度，方便查看居中效果 */
+            margin: 0;
+            /* 去除默认的外边距 */
+            background-color: aliceblue;
+        }
+        
+        .img {
+            width: 60px;
+            height: 50px;
+            top: 0%;
+            padding: 0%;
+            position: absolute;
+            background-image: url('./lilp.png');
+            background-size: cover;
+        }
+        
+        .dialog {
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            /* 初始隐藏 */
+        }
+        /* 模态框整体样式 */
+        
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            /* 确保模态框在页面上方显示 */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* 使其在水平和垂直方向上居中 */
+            width: 1200px;
+            /* 可以根据需求调整宽度 */
+            height: 500px;
+            /* 可以根据需求调整高度 */
+            background-color: rgb(238, 222, 222);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            opacity: 0.5;
+        }
+        /* 模态框内容区域样式 */
+        
+        .modal-content {
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        /* 关闭按钮样式 */
+        
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* 用户选项按钮样式 */
+        
+        .user-option-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .user-option-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .interact_l {
+            background-color: #9853538a;
+            width: 40%;
+            height: 40%;
+            opacity: 0.5;
+            padding: 5%;
+            display: flex;
+        }
+        
+        .interact_r {
+            background-color: #a34d4d8a;
+            width: 300px;
+            height: 300px;
+            opacity: 0.5;
+            padding: 5%;
+            margin-left: 20px;
+            display: inline-block;
+        }
+        
+        .inter {
+            opacity: 0.6;
+        }
+        
+        .typing {
+            width: 20ch;
+            text-wrap: nowrap;
+            overflow: hidden;
+            animation: typing 2s steps(20);
+            /* infinite alternate-reverse */
+        }
+        
+        @keyframes typing {
+            from {
+                width: 0ch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parentDiv">
+        <div class="img" id="mypet">
+        </div>
+        </button>
+    </div>
+    <div>
+        <link rel="stylesheet" href="#">
+    </div>
+
+
+    <!-- 新增的中间交互窗口模态框 -->
+    <div id="userOptionsModal" class="modal">
+        <span id="closeUserOptionsModal" class="close">&times;</span>
+        <h3>用户选项</h3>
+        <div class="modal-content">
+            <div class="interact_l" id="left_in"></div>
+            <div class="interact_r" id="right_in"><img class="inter" src="lilp.png" alt="pet" width="200px" height="200px">
+                <p class="typing">what can i do for you?</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+<script>
+    let img = document.querySelector('.img')
+    let deg = 0
+    let imgy = 0
+    let imgx = 0
+    let imgt = 0
+    let imgl = 0
+    let y = 0
+    let index = 0
+    let md = 0
+    let up = 0;
+    let cont = ['hello', 'what can i do fro you', 'walawalawala', 'wohsi tuji']
+    const parentDiv = document.getElementById('parentDiv');
+
+    const btn = document.getElementById('mypet')
+
+
+    // // 获取模态框和关闭按钮元素
+    // const userOptionsModal = document.getElementById('userOptionsModal');
+    // const closeUserOptionsModal = document.getElementById('closeUserOptionsModal');
+
+    // // 显示模态框的函数
+    // function showUserOptionsModal() {
+    //     userOptionsModal.style.display = 'block';
+    // }
+
+    // // 隐藏模态框的函数
+    // function hideUserOptionsModal() {
+    //     userOptionsModal.style.display = 'none';
+    // }
+
+    // // 给关闭按钮添加点击事件监听器，点击时隐藏模态框
+    // closeUserOptionsModal.addEventListener('click', hideUserOptionsModal);
+
+    // // 示例：假设在某个按钮点击时显示这个用户选项模态框，以下是简单示例代码（你可以根据实际需求调整触发显示的逻辑）
+    // const someButton = document.querySelector('.some-button'); // 替换为实际想要触发显示的按钮元素选择器
+    // if (someButton) {
+    //     someButton.addEventListener('click', showUserOptionsModal);
+    // }
+
+
+
+
+    btn.addEventListener('mousedown', function(xyz) {
+        //console.log('鼠标在按钮上按下');
+        md = 1;
+        up = 0;
+        dia = document.getElementsByClassName('dialog');
+        for (let i = 0; i < dia.length; i++) {
+            dia[i].style.display = 'none';
+        }
+        img.style.backgroundImage = 'url(./lilpet.gif)'
+
+    })
+
+
+    btn.addEventListener('mouseup', function(xyz) {
+        //console.log('鼠标在按钮上松开');
+        //up=1;
+        md = 0;
+        img.style.backgroundImage = 'url(./lilp.png)'
+        setTimeout(function() {
+
+            img.style.backgroundImage = 'url(./lilpet.gif)';
+            img.style.transform = 'scalX(-1)';
+
+        }, 3000)
+
+    })
+
+    window.addEventListener('mousemove', function(xyz) {
+
+
+        imgx = xyz.x - img.offsetLeft - img.clientWidth / 2
+        imgy = xyz.y - img.offsetTop - img.clientHeight / 2
+
+        index = 0
+
+        let x = event.clientX
+
+        if (img.offsetleft < x) {
+            y = -100
+        } else {
+            y = 0
+        }
+
+    })
+
+    setInterval(() => {
+        if (md == 1) {
+            index++;
+            if (index < 10) {
+                imgt += imgy / 10
+                imgl += imgx / 10
+            }
+            img.style.left = imgl + 'px'
+            img.style.top = imgt + 'px'
+        }
+    }, 10)
+
+    btn.addEventListener('contextmenu', function(event) {
+
+
+        console.log('鼠标右键在该元素上被点击');
+        // 阻止默认的上下文菜单显示（可选操作）
+        event.preventDefault();
+
+        const dialog = document.createElement('div');
+        dialog.className = 'dialog';
+
+        dialog.textContent = cont[Math.floor(Math.random() * 4)];
+        //dialog.herf=''
+
+        // 获取点击元素的位置信息
+        const offsetTop = event.target.offsetTop;
+        const offsetLeft = event.target.offsetLeft;
+        const buttonWidth = event.target.offsetWidth;
+        const buttonHeight = event.target.offsetHeight;
+
+        // 设置对话框在父元素中的位置（这里示例将其显示在点击元素下方）
+        dialog.style.position = 'absolute';
+        dialog.style.top = offsetTop + buttonHeight + 5 + 'px';
+        dialog.style.left = offsetLeft + buttonWidth / 2 - dialog.offsetWidth / 2 + 'px';
+
+        // 将对话框添加到点击元素的父元素（parentDiv）中
+        parentDiv.appendChild(dialog);
+
+        // const hef1 = document.createElement('a');
+        // hef1.textContent = 'login';
+        // hef1.href = '#';
+        //
+        // const hef2 = document.createElement('a');
+        // hef2.textContent = '教材';
+        // hef2.href = '#';
+
+        // dialog.appendChild(hef1);
+        // dialog.appendChild(hef2);
+
+
+
+    });
+</script>
+
+
+</html>
