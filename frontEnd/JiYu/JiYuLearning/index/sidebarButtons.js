@@ -193,7 +193,7 @@ accountInfoButton.addEventListener('click', function () {
         saveCurrentState();
 
         // 返回到登录注册页面
-        window.location.href = '../login/login.html'; // 假设登录注册页面为login.html
+        window.location.href = '../login02/login.html'; // 假设登录注册页面为login.html
     });
 
     // 预留保存当前现场的函数

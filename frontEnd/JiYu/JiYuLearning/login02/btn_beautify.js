@@ -1,8 +1,8 @@
-let login = document.querySelector('.login')
+ let login = document.querySelector('.login')
 let span
 let btn = document.querySelector('button')
 
-
+//实现按钮的美化功能
 login.addEventListener('mouseenter', function(event) {
     span = document.createElement('span')
     login.appendChild(span)
@@ -26,8 +26,4 @@ login.addEventListener('mouseleave', function(event) {
     span.style.left = left + 'px'
     span.style.top = top + 'px'
 
-})
-
-btn.addEventListener('click', function(event) {
-    alert('登陆成功！')
 })
