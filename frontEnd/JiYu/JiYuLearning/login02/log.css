@@ -77,14 +77,15 @@ input {
     position: relative;
     width: 200px;
     height: 20px;
-    background-color: aqua;
+    background-color: #ffffff;
     opacity: 35%;
     border: none;
     border-bottom: 2px solid;
-    font-size: 15px;
+    font-size: 17px;
     font-family: 'Courier New', Courier, monospace;
     bottom: 10px;
     outline: none;
+    font-weight: bolder;
 }
 
 input::placeholder {

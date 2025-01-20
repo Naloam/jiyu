@@ -39,3 +39,8 @@ function btn_login() {
             console.error('登录请求出错:', error);
         });
 }
+
+// //点击登录后跳转至注册页面
+// function goToRegisterPage() {
+//     window.location.href = './register.html';
+// }

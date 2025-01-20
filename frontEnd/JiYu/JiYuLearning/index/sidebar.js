@@ -10,7 +10,7 @@ settingsBtn.addEventListener('click', function() {
         // 如果侧边栏已经打开，则关闭侧边栏
         console.log("___关闭侧边栏");
         sidebar.classList.remove('open');
-        settingsBtn.src = '../img/settings.png';  // 切换为默认图标
+        settingsBtn.src = '../src/img/settings.png';  // 切换为默认图标
         settingsBtn.style.filter = 'grayscale(100%)';
         setTimeout(() => {
             sidebar.style.display = 'none';
@@ -24,7 +24,7 @@ settingsBtn.addEventListener('click', function() {
         // 如果侧边栏未打开，则打开侧边栏
         console.log("____打开侧边栏");
         sidebar.style.display = 'block';
-        settingsBtn.src = '../img/settings-active.png';  // 切换为激活图标
+        settingsBtn.src = '../src/img/settings-active.png';  // 切换为激活图标
         setTimeout(() => {
             sidebar.classList.add('open');
             settingsBtn.style.filter = 'none';
