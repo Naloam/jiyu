@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 获取按钮元素
     const guideButton = document.querySelector('.sidebar button:nth-child(2)');
     const accountInfoButton = document.querySelector('.sidebar button:nth-child(3)');
-    const knowledgeBaseButton = document.querySelector('.sidebar button:nth-child(4)');
+    const updatePasswordButton = document.querySelector('.sidebar button:nth-child(4)');
+    const knowledgeBaseButton = document.querySelector('.sidebar button:nth-child(5)');
     const logoutButton = document.querySelector('.sidebar .logout');
 
     // 使用指南按钮点击事件
@@ -93,6 +94,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 账号信息按钮点击事件
 accountInfoButton.addEventListener('click', function () {
+    //根据用户名获取用户的id并储存在localStorage里:
+    const username = localStorage.getItem('username');
+    // 发送查找请求
+    fetch('http://localhost:8080/user?username='+username)
+        .then(response => response.json())
+        .then(user => {
+            if (user.id != null) {
+                console.log('成功查找到用户id');
+                //顺便查找出其他信息
+                localStorage.setItem("id",user.id);
+                localStorage.setItem("nem",user.name);
+                localStorage.setItem("level",user.level);
+                localStorage.setItem("progress",user.progress);
+                localStorage.setItem("integral",user.integral);
+                localStorage.setItem("clock_time",user.clock_time);
+                localStorage.setItem("tb_question_id",user.tb_question_id);
+            } else {
+                console.log('找不到到用户id');
+            }
+        })
+        .catch(error => {
+            console.error('注册请求出错:', error);
+        });
+
     // 创建模态框的容器
     const modal = document.createElement('div');
     modal.className = 'modal';
@@ -114,27 +139,41 @@ accountInfoButton.addEventListener('click', function () {
     const title = document.createElement('h2');
     title.textContent = '修改账号信息';
 
+
     // 创建输入框
+
+    //展示内容:
+    const usernameShow = document.createElement('h4');
+    usernameShow.textContent = '昵称: '+localStorage.getItem('name');
+
+    const levelShow = document.createElement('h4');
+    levelShow.textContent = '水平: '+localStorage.getItem('level');
+
+    const progressShow = document.createElement('h4');
+    progressShow.textContent = '当前任务完成进度: '+localStorage.getItem('progress')+'%';
+
+    const integralShow = document.createElement('h4');
+    integralShow.textContent = '获得积分: '+localStorage.getItem('integral');
+
+    const clockTimeShow = document.createElement('h4');
+    clockTimeShow.textContent = '连续打卡时长: '+localStorage.getItem('clock_time'+'天');
+
+    //修改昵称
     const usernameInput = document.createElement('input');
     usernameInput.type = 'text';
-    usernameInput.placeholder = '新的用户名';
+    usernameInput.placeholder = '新的昵称';
     usernameInput.style.display = 'block';
     usernameInput.style.margin = '10px auto';
-    usernameInput.value = '新的用户名'; // 默认值
+    usernameInput.value = '新的昵称'; // 默认值
 
-    const passwordInput = document.createElement('input');
-    passwordInput.type = 'password';
-    passwordInput.placeholder = '新的密码';
-    passwordInput.style.display = 'block';
-    passwordInput.style.margin = '10px auto';
-    passwordInput.value = '新的密码'; // 默认值
+    //修改用户水平
+    const levelInput = document.createElement('input');
+    levelInput.type = 'text';
+    levelInput.placeholder = '请输入您的水平("low,middle,high")';
+    levelInput.style.display = 'block';
+    levelInput.style.margin = '10px auto';
+    levelInput.value = '请输入您的水平(low,middle,high)'; // 默认值
 
-    const confirmPasswordInput = document.createElement('input');
-    confirmPasswordInput.type = 'password';
-    confirmPasswordInput.placeholder = '确认密码';
-    confirmPasswordInput.style.display = 'block';
-    confirmPasswordInput.style.margin = '10px auto';
-    confirmPasswordInput.value = '确认密码'; // 默认值
 
     // 创建按钮容器
     const buttonContainer = document.createElement('div');
@@ -146,9 +185,42 @@ accountInfoButton.addEventListener('click', function () {
     const confirmButton = document.createElement('button');
     confirmButton.textContent = '确认修改';
     confirmButton.onclick = function () {
-        const newUsername = usernameInput.value;
-        localStorage.setItem('username', newUsername); // 更新localStorage中的用户名
-        alert('用户名已修改为：' + newUsername);
+        const newname = usernameInput.value;
+        const level = levelInput.value;
+        localStorage.setItem('name', newname); // 更新localStorage中的用户名
+        localStorage.setItem('level', level); // 更新localStorage中的用户水平
+
+        // //根据用户id，将更新的信息存储在对应用户里：
+        // const user_id = localStorage.getItem('id');
+        // // 创建一个 User 对象
+        // const user = {
+        //     id: user_id,
+        //     username: newname,
+        //     level: level
+        // };
+        // // 发送更新请求
+        // fetch('http://localhost:8080/user', {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(user)
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data.code === 1) {
+        //             console.log('更新用户信息成功!');
+        //         } else {
+        //             console.log('更新用户信息失败');
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('更新用户信息请求出错:', error);
+        //     });
+    //展示内容:
+    usernameShow.textContent = '昵称: '+localStorage.getItem('name');
+    levelShow.textContent = '水平: '+localStorage.getItem('level');        
+        alert('用户名已修改为：' + newname);
         modal.style.display = 'none'; // 隐藏模态框
         location.reload(); // 强制刷新浏览器
     };
@@ -167,9 +239,13 @@ accountInfoButton.addEventListener('click', function () {
     // 将所有元素添加到模态框内容中
     modalContent.appendChild(closeButton);
     modalContent.appendChild(title);
+    modalContent.appendChild(usernameShow);
+    modalContent.appendChild(levelShow);
+    modalContent.appendChild(progressShow);
+    modalContent.appendChild(integralShow);
+    modalContent.appendChild(clockTimeShow);
     modalContent.appendChild(usernameInput);
-    modalContent.appendChild(passwordInput);
-    modalContent.appendChild(confirmPasswordInput);
+    modalContent.appendChild(levelInput);
     modalContent.appendChild(buttonContainer);
 
     // 将模态框内容添加到模态框容器中
@@ -179,6 +255,134 @@ accountInfoButton.addEventListener('click', function () {
     document.body.appendChild(modal);
 });
 
+
+// 修改密码按钮点击事件
+    updatePasswordButton.addEventListener('click', function () {
+        // 创建模态框的容器
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.style.display = 'flex'; // 显示模态框
+
+        // 创建模态框的内容
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content';
+
+        // 创建关闭按钮
+        const closeButton = document.createElement('span');
+        closeButton.className = 'close';
+        closeButton.innerHTML = '&times;';
+        closeButton.onclick = function () {
+            modal.style.display = 'none'; // 点击关闭按钮时隐藏模态框
+        };
+
+        // 创建标题
+        const title = document.createElement('h2');
+        title.textContent = '修改密码';
+
+        // 创建输入框
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'text';
+        passwordInput.placeholder = '新的密码';
+        passwordInput.style.display = 'block';
+        passwordInput.style.margin = '10px auto';
+        passwordInput.value = '新的密码'; // 默认值
+
+        const confirmPasswordInput = document.createElement('input');
+        confirmPasswordInput.type = 'text';
+        confirmPasswordInput.placeholder = '确认密码';
+        confirmPasswordInput.style.display = 'block';
+        confirmPasswordInput.style.margin = '10px auto';
+        confirmPasswordInput.value = '确认密码'; // 默认值
+
+        // 创建按钮容器
+        const buttonContainer = document.createElement('div');
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'space-around';
+        buttonContainer.style.marginTop = '20px';
+
+        // 创建确认修改按钮
+        const confirmButton = document.createElement('button');
+        confirmButton.textContent = '确认修改';
+        confirmButton.onclick = function () {
+            const newPassword = passwordInput.value;
+            localStorage.setItem('password', newPassword); // 更新localStorage中的密码
+
+            //根据用户名获取用户的id并储存在localStorage里:
+            const username = localStorage.getItem('username');
+
+            // // 发送查找请求
+            // fetch('http://localhost:8080/user?username='+username)
+            //     .then(response => response.json())
+            //     .then(user => {
+            //         if (user.id != null) {
+            //             console.log('成功查找到用户id');
+            //             const user_id = user.id;
+            //             localStorage.setItem("id",user.id);
+            //         } else {
+            //             console.log('找不到到用户id');
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error('注册请求出错:', error);
+            //     });
+
+            // //根据用户id，将更新的信息存储在对应用户里：
+            // const user_id = localStorage.getItem('id');
+            // // 创建一个 User 对象
+            // const user = {
+            //     id: user_id,
+            //     password: newPassword
+            // };
+
+            // // 发送更新请求
+            // fetch('http://localhost:8080/user', {
+            //     method: 'PUT',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(user)
+            // })
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         if (data.code === 1) {
+            //             console.log('更新用户信息成功!');
+            //         } else {
+            //             console.log('更新用户信息失败');
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error('更新用户信息请求出错:', error);
+            //     });
+
+            alert('密码修改成功!');
+            modal.style.display = 'none'; // 隐藏模态框
+            location.reload(); // 强制刷新浏览器
+        };
+
+        // 创建取消修改按钮
+        const cancelButton = document.createElement('button');
+        cancelButton.textContent = '取消修改';
+        cancelButton.onclick = function () {
+            modal.style.display = 'none'; // 隐藏模态框
+        };
+
+        // 将按钮添加到按钮容器中
+        buttonContainer.appendChild(confirmButton);
+        buttonContainer.appendChild(cancelButton);
+
+        // 将所有元素添加到模态框内容中
+        modalContent.appendChild(closeButton);
+        modalContent.appendChild(title);
+        modalContent.appendChild(passwordInput);
+        modalContent.appendChild(confirmPasswordInput);
+        modalContent.appendChild(buttonContainer);
+
+        // 将模态框内容添加到模态框容器中
+        modal.appendChild(modalContent);
+
+        // 将模态框添加到body中
+        document.body.appendChild(modal);
+    });
 
 
     // 知识库按钮点击事件

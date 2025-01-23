@@ -73,3 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("_____用户名没查找到");
     }
 });
+
+document.getElementById('btnDailyJi').addEventListener('click', function(){
+        // 点击"每日刷题"跳转到每日刷题按钮
+    if(localStorage.getItem('level') == 'middle'){//如果用户为'中等'水平
+        window.location.href='../daily_homework/middle_question/middle_question.html';
+    }
+    else if(localStorage.getItem('level') == 'high'){//如果用户为'高手'水平
+        window.location.href='../daily_homework//hard_question/hard_question.html';
+    }
+    else{
+        window.location.href='../daily_homework//simple_question/simple_question.html';
+    }
+});

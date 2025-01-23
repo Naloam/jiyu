@@ -45,7 +45,7 @@ dropdownOptions.forEach((option, index) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 获取localStorage中的用户名
+    // 获取localStorage中的账号名
     const username = localStorage.getItem('username');
     console.log("____用户名为" + username);
     // 检查用户名是否存在
