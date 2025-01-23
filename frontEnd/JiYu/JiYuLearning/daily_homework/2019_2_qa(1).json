@@ -1,0 +1,122 @@
+[
+    {
+        "question": "当 \\( x \\to 0 \\) 时，若 \\( x - \\tan x \\) 与 \\( x^k \\) 是同阶无穷小，则 \\( k = \\) （    ）\\n (A) 1 \\t  (B) 2 \\t (C) 3 \\t (D) 4",
+        "answer": "(C) 3.",
+        "point": "无穷小阶数比较",
+        "level": 3
+    },
+    {
+        "question": "曲线 \\( y = x \\sin x + 2 \\cos x \\left( -\\frac{\\pi}{2} < x < 2\\pi \\right) \\) 的拐点坐标为（    ）\\n (A) (0, 2) \\t  (B) \\( (\\pi, -2) \\) \\t (C) \\( \\left( \\frac{\\pi}{2}, \\frac{\\pi}{2} \\right) \\) \\t (D) \\( \\left( \\frac{3\\pi}{2}, -\\frac{3\\pi}{2} \\right) \\)",
+        "answer": "(B) \\( (\\pi, -2) \\).",
+        "point": "拐点坐标求解",
+        "level": 4
+    },
+    {
+        "question": "下列反常积分发散的是（    ）\\n (A) \\( \\int_{0}^{\\infty} xe^{-x} dx \\) \\t  (B) \\( \\int_{0}^{\\infty} xe^{-x^2} dx \\) \\t (C) \\( \\int_{0}^{\\infty} \\frac{\\arctan x}{1+x^2} dx \\) \\t (D) \\( \\int_{0}^{\\infty} \\frac{x}{1+x^2} dx \\)",
+        "answer": "(D) \\( \\int_{0}^{\\infty} \\frac{x}{1+x^2} dx \\).",
+        "point": "反常积分收敛性",
+        "level": 3
+    },
+    {
+        "question": "已知微分方程 \\( y'' + ay' + by = ce^x \\) 的通解为 \\( y = (C_1 + C_2 x) e^{-x} + e^x \\)，则 \\( a, b, c \\) 依次为（    ）\\n (A) 1, 0, 1 \\t  (B) 1, 0, 2 \\t (C) 2, 1, 3 \\t (D) 2, 1, 4",
+        "answer": "(D) 2, 1, 4.",
+        "point": "微分方程参数求解",
+        "level": 4
+    },
+    {
+        "question": "已知平面区域 \\( D = \\left\\{ (x, y) | x| + |y| \\leq \\frac{\\pi}{2} \\right\\} \\)，\\( I_1 = \\iint\\limits_{D} \\sqrt{x^2 + y^2} dxdy \\)，\\( I_2 = \\iint\\limits_{D} \\sin \\sqrt{x^2 + y^2} dxdy \\)，\\( I_3 = \\iint\\limits_{D} (1 - \\cos \\sqrt{x^2 + y^2}) dxdy \\)，则（    ）\\n (A) \\( I_3 < I_2 < I_1 \\) \\t  (B) \\( I_2 < I_1 < I_3 \\) \\t (C) \\( I_1 < I_2 < I_3 \\) \\t (D) \\( I_2 < I_3 < I_1 \\)",
+        "answer": "(A) \\( I_3 < I_2 < I_1 \\).",
+        "point": "二重积分比较",
+        "level": 5
+    },
+    {
+        "question": "已知 \\( f(x), g(x) \\) 阶可导且2阶导函数在 \\( x = a \\) 处连续，则 \\( \\lim\\limits_{x \\to a} \\frac{f(x) - g(x)}{(x-a)^2} = 0 \\) 是曲线 \\( y = f(x) \\) 和 \\( y = g(x) \\) 在 \\( x = a \\) 对应的点处相切且曲率相等的（    ）\\n (A) 充分非必要条件 \\t  (B) 充分必要条件 \\t (C) 必要非充分条件 \\t (D) 既非充分又非必要条件",
+        "answer": "(A) 充分非必要条件.",
+        "point": "曲线相切与曲率",
+        "level": 4
+    },
+    {
+        "question": "设A是4阶矩阵，\\( A^* \\) 是A的伴随矩阵，若线性方程组 \\( Ax = 0 \\) 的基础解系中只有2个向量，则 \\( r(A^*) = \\) （    ）\\n (A) 0 \\t  (B) 1 \\t (C) 2 \\t (D) 3",
+        "answer": "(A) 0.",
+        "point": "矩阵秩与伴随矩阵",
+        "level": 4
+    },
+    {
+        "question": "设A是3阶实对称矩阵，E是3阶单位矩阵。若 \\( A^2 + A = 2E \\)，且 \\( |A| = 4 \\)，则二次型 \\( x^T Ax \\) 的规范形为（    ）\\n (A) \\( y_1^2 + y_2^2 + y_3^2 \\) \\t  (B) \\( y_1^2 + y_2^2 - y_3^2 \\) \\t (C) \\( y_1^2 - y_2^2 - y_3^2 \\) \\t (D) \\( y_1^2 - y_2^2 - y_3^2 \\)",
+        "answer": "(C) \\( y_1^2 - y_2^2 - y_3^2 \\).",
+        "point": "二次型规范形",
+        "level": 5
+    },
+    {
+        "question": "\\( \\lim\\limits_{x \\to 0} (x + 2^x)^{\\frac{2}{x}} = \\) ______.",
+        "answer": "4e^2.",
+        "point": "极限计算",
+        "level": 3
+    },
+    {
+        "question": "曲线 \\( x = t - \\sin t \\)，在 \\( t = \\frac{3\\pi}{2} \\) 对应点处的切线在y轴上的截距为______。",
+        "answer": "\\(\\frac{3\\pi}{2}+2\\).",
+        "point": "切线截距计算",
+        "level": 3
+    },
+    {
+        "question": "设函数 \\( f(u) \\) 可导，\\( z = yf \\left( \\frac{y^2}{x} \\right) \\)，则 \\( 2x \\frac{\\partial z}{\\partial x} + y \\frac{\\partial z}{\\partial y} = \\) ______.",
+        "answer": "\\( yf\\left(\\frac{y^2}{x}\\right) \\)。",
+        "point": "偏导数计算",
+        "level": 4
+    },
+    {
+        "question": "曲线 \\( y = \\ln \\cos x \\ (0 \\leq x \\leq \\frac{\\pi}{6}) \\) 的弧长为 ______.",
+        "answer": "\\(\\frac{1}{2}ln3\\)。",
+        "point": "弧长计算",
+        "level": 4
+    },
+    {
+        "question": "已知函数 \\( f(x) = x \\int_1^x \\frac{\\sin t^2}{t} dt \\)，则 \\( \\int_0^1 f(x) dx = \\) ______.",
+        "answer": "\\(\\frac{\\cos 1-1}{4}\\)。",
+        "point": "积分计算",
+        "level": 5
+    },
+    {
+        "question": "已知矩阵 \\( A = \\begin{pmatrix} 1 & -1 & 0 & 0 \\\\ -2 & 1 & -1 & 1 \\\\ 3 & -2 & 2 & -1 \\\\ 0 & 0 & 3 & 4 \\end{pmatrix} \\)，\\( A_{ij} \\) 表示 \\( |A| \\) 中 \\( (i, j) \\) 元的代数余子式，则 \\( A_{11} - A_{12} = \\) ______.",
+        "answer": "-4。",
+        "point": "矩阵代数余子式",
+        "level": 4
+    },
+    {
+        "question": "求不定积分 \\( \\int \\frac{3x + 6}{(x-1)^2(x^2 + x + 1)} dx \\)。",
+        "answer": "\\( -2 \\ln |x-1| - \\frac{3}{x-1} + \\ln (x^2 + x + 1) + C \\)。",
+        "point": "不定积分计算",
+        "level": 4
+    },
+    {
+        "question": "设函数 \\( y(x) \\) 是微分方程 \\( y' - xy = \\frac{1}{2\\sqrt{x}} e^{\\frac{-x^2}{2}} \\) 满足条件 \\( y(1) = \\sqrt{e} \\) 的特解。 (I) 求 \\( y(x) \\)； (II) 设平面区域 \\( D = \\{(x,y) \\mid 1 \\leq x \\leq 2, 0 \\leq y \\leq y(x)\\} \\)，求 \\( D \\) 绕 \\( x \\) 轴旋转所得旋转体的体积。",
+        "answer": "(I) \\( y(x) = \\sqrt{x} e^{\\frac{t^2}{2}} \\)。 (II) \\( V = \\frac{\\pi}{2} (e^4 - e) \\)。",
+        "point": "微分方程与旋转体体积",
+        "level": 5
+    },
+    {
+        "question": "已知平面区域 \\( D = \\{(x,y) | |x| \\leq y, (x^2 + y^2)^3 \\leq y^4\\} \\)，计算二重积分 \\( \\iint_D \\frac{x+y}{\\sqrt{x^2 + y^2}} \\, dxdy \\)。",
+        "answer": "\\(\\frac{43}{120} \\sqrt{2}\\)。",
+        "point": "二重积分计算",
+        "level": 5
+    },
+    {
+        "question": "已知函数 \\( u(x,y) \\) 满足 \\( 2 \\frac{\\partial^2 u}{\\partial x^2} - 2 \\frac{\\partial^2 u}{\\partial y^2} + 3 \\frac{\\partial u}{\\partial x} + 3 \\frac{\\partial u}{\\partial y} = 0 \\)，求 \\( a,b \\) 的值，使得在变换 \\( u(x,y) = v(x,y)e^{ax+by} \\) 下，上述等式可化为 \\( v(x,y) \\) 不含一阶偏导数的等式。",
+        "answer": "\\( a = -\\frac{3}{4}, b = \\frac{3}{4} \\)。",
+        "point": "偏微分方程变换",
+        "level": 5
+    },
+    {
+        "question": "已知函数 \\( f(x) \\) 在 \\([0,1]\\) 上具有 2 阶导数，且 \\( f(0) = 0 \\)，\\( f(1) = 1 \\)，\\(\\int_{0}^{1} f(x) dx = 1\\)，证明： （Ⅰ）存在 \\(\\xi \\in (0,1)\\)，使得 \\( f'(\\xi) = 0 \\)； （Ⅱ）存在 \\(\\eta \\in (0,1)\\)，使得 \\( f''(\\eta) < -2 \\)。",
+        "answer": "（Ⅰ）存在 \\(\\xi \\in (0,1)\\)，使得 \\( f'(\\xi) = 0 \\)。 （Ⅱ）存在 \\(\\eta \\in (0,1)\\)，使得 \\( f''(\\eta) < -2 \\)。",
+        "point": "微分中值定理应用",
+        "level": 5
+    },
+    {
+        "question": "已知矩阵 \\( A = \\begin{pmatrix} -2 & -2 & 1 \\\\ 2 & x & -2 \\\\ 0 & 0 & -2 \\end{pmatrix} \\) 与 \\( B = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & y \\end{pmatrix} \\) 相似。 （Ⅰ）求 \\( x, y \\)； （Ⅱ）求可逆矩阵 \\( P \\)，使得 \\( P^{-1}AP = B \\)。",
+        "answer": "（Ⅰ）\\( x = 3, y = -2 \\)。 （Ⅱ）\\( P = \\begin{pmatrix} -1 & -1 & -1 \\\\ 2 & 1 & 2 \\\\ 0 & 0 & 4 \\end{pmatrix} \\)。",
+        "point": "矩阵相似性",
+        "level": 5
+    }
+]

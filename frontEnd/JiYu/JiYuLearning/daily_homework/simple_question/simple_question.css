@@ -1,0 +1,106 @@
+/* 标题样式 */
+.title {
+    color: #333; /* 暗色调 */
+    text-align: center; /* 居中 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 30px 0;    
+}
+
+.selections {
+    size: 20px;
+}
+
+.questions {
+    width: fit-content;
+    height: fit-content;
+    font-size: 30px;
+}
+
+.selection {
+    margin-right: 50px;
+}
+
+/* 调整单选框的圆点大小 */
+input[type="radio"] {
+    /* 调整 radio 按钮的整体大小 */
+    width: 24px;
+    height: 24px;
+    /* 移除默认样式 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+} 
+input[type="radio"]::before {
+    /* 调整内部选中状态的圆点大小 */
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #000;
+    transition: transform 0.2s ease-in-out;
+} 
+input[type="radio"]:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+} 
+
+/* 设置提交按钮的样式 */
+/* 按钮样式 */
+#btn_submit {
+    width: 120px;/*按钮宽度*/
+    display: inline-block;
+    padding: 10px 20px; /* 调整按钮内边距，影响按钮大小 */
+    font-size: 20px; /* 调整字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    text-align: center;
+    text-decoration: none;
+    color: #fff; /* 字体颜色为白色 */
+    background-color: #007BFF; /* 按钮背景颜色 */
+    border: 2px solid #007BFF; /* 按钮边框 */
+    border-radius: 5px; /* 圆角半径 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    transition: background-color 0.3s, border-color 0.3s; /* 过渡效果 */
+}
+#btn_submit:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+    border-color: #0056b3; /* 鼠标悬停时的边框颜色 */
+}
+#btn_submit:active {
+    background-color: #004085; /* 按钮按下时的背景颜色 */
+    border-color: #004085; /* 按钮按下时的边框颜色 */
+}
+/* 容器样式，用于将按钮居中 */
+    button-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 容器高度占满视口高度 */
+}
+
+/* 设置背景图 */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: aliceblue;
+    background: url("/JiYu/JiYuLearning/src/img/bg.jpg");
+    background-size: cover;
+    /* 背景图片覆盖整个页面 */
+    background-repeat: no-repeat;
+    /* 背景图片不重复 */
+    background-position: center center;
+    /* 背景图片居中显示 */
+    background-attachment: fixed;
+    /* 背景图片固定，页面滚动时不会移动 */
+}

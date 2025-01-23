@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="i1">
+    <button onclick="f1()" style="width: 20px ;height: 20px"></button>
+    <input type="text" id="i2">
+    <button onclick="f2()" style="width: 20px ;height: 20px"></button>
+    <input type="text" id="i3">
+<script >
+    const inputElement = document.getElementById('i1');
+    // 修改 input 元素的值
+    inputElement.value = localStorage.getItem('username');
+    function f1(){
+        const username = localStorage.getItem('username');
+
+        // 发送注册请求
+        fetch('http://localhost:8080/user?username='+username)
+            .then(response => response.json())
+            .then(user => {
+                if (user.id != null) {
+                    console.log('成功查找到用户id');
+                    const id = user.id;
+                    alert("id为： "+id);
+                    localStorage.setItem("id",id);
+                } else {
+                    console.log('找不到到用户id');
+                }
+            })
+            .catch(error => {
+                console.error('注册请求出错:', error);
+            });
+        const inputElement = document.getElementById('i2');
+        // 修改 input 元素的值
+        inputElement.value = localStorage.getItem('id');
+    }
+    function f2(){
+        const inputElement = document.getElementById('i3');
+            const username = localStorage.getItem('username');
+            //请求的url：
+            // 发送注册请求
+            fetch('http://localhost:8080/user?username='+username)
+                .then(response => response.json())
+                .then(user => {
+                    if (user.name != null) {
+                        console.log('成功查找到用户name');
+                        const name = user.name;
+                        localStorage.setItem("name",name);
+                    } else {
+                        console.log('找不到到用户name');
+                    }
+                })
+                .catch(error => {
+                    console.error('注册请求出错:', error);
+                });
+        // 修改 input 元素的值
+        inputElement.value = localStorage.getItem('name');
+    }
+</script>
+</body>
+</html>

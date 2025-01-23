@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>积语——每日刷题</title>
+    <link rel="stylesheet" href="hard_question.css">
+    <script src="hard_questions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+  <h1 class="title">
+    每 日 刷 题
+  </h1>
+  <div class="questions">
+    根据您的水平(高手)，以下是为您个性化定制的题目：
+  </div><br>
+  <div id="question_1" class="questions">
+    <div id="q1" class="description">
+    1. 已知平面区域 \( D = \left\{ (x, y) | x| + |y| \leq \frac{\pi}{2} \right\} \)，\( I_1 = \iint\limits_{D} \sqrt{x^2
+    + y^2} dxdy \)，\( I_2 = \iint\limits_{D} \sin \sqrt{x^2 + y^2} dxdy \)，\( I_3 = \iint\limits_{D} (1 - \cos
+    \sqrt{x^2 + y^2}) dxdy \)，则（ ）      
+  </div>
+    <div id="selection_1" class="selections">
+    (A) \( I_3 < I_2 < I_1 \)<input type="radio" name="s_1" class="selection" value="A" onclick="click_1()">
+    (B) \( I_2 < I_1 < I_3 \)<input type="radio" name="s_1" class="selection" value="B" onclick="click_1()">
+    (C) \( I_1 < I_2 < I_3 \)<input type="radio" name="s_1" class="selection" value="C" onclick="click_1()">
+    (D) \( I_2 < I_3 < I_1 \)<input type="radio" name="s_1" class="selection" value="D" onclick="click_1()">
+    </div><br>
+  </div>
+
+    <div id="question_2" class="questions">
+      <div id="q2" class="description">
+      2. 设A是3阶实对称矩阵，E是3阶单位矩阵。若 \( A^2 + A = 2E \)，且 \( |A| = 4 \)，则二次型 \( x^T Ax \) 的规范形为（ ） 
+      </div>
+     <div id="selection_2" class="selections">
+      (A) \( y_1^2 + y_2^2 +y_3^2 \)<input type="radio" name="s_2" class="selection" value="A" onclick="click_2()">
+      (B) \( y_1^2 + y_2^2 - y_3^2 \)<input type="radio" name="s_2" class="selection" value="B" onclick="click_2()">
+      (C) \( y_1^2 - y_2^2 - y_3^2 \)<input type="radio" name="s_2" class="selection" value="C" onclick="click_2()">
+      (D) \( y_1^2 - y_2^2 - y_3^2 \)<input type="radio" name="s_2" class="selection" value="D" onclick="click_2()">
+     </div><br>
+    </div>
+
+    <div id="question_3" class="questions">
+      <div id="q3" class="description">
+        3. 已知函数 \( f(x) = x \int_1^x \frac{\sin t^2}{t} dt \)，则 \( \int_0^1 f(x) dx = \) ______.
+      </div>
+      <div id="selection_3" class="selections">
+        (A) \(\frac{\cos 2-1}{4}\)<input type="radio" name="s_3" class="selection" value="A" onclick="click_3()">
+        (B) \(\frac{\cos 1}{4}\)<input type="radio" name="s_3" class="selection" value="B" onclick="click_3()">
+        (C) \(\frac{\cos 1-1}{2}\)<input type="radio" name="s_3" class="selection" value="C" onclick="click_3()">
+        (D) \(\frac{\cos 1-1}{4}\)<input type="radio" name="s_3" class="selection" value="D" onclick="click_3()">
+      </div><br>
+    </div>
+
+    <div id="question_4" class="questions">
+      <div id="q4" class="description">
+        4. 设函数 \( y(x) \) 是微分方程 \( y' - xy = \frac{1}{2\sqrt{x}} e^{\frac{-x^2}{2}} \) 满足条件 \( y(1) = \sqrt{e} \) 的特解。
+        (I) 求 \( y(x) \)； (II) 设平面区域 \( D = \{(x,y) \mid 1 \leq x \leq 2, 0 \\leq y \leq y(x)\} \)，求 \( D \) 绕 \( x
+        \) 轴旋转所得旋转体的体积。
+      </div>
+      <div id="selection_4" class="selections">
+          (A) (I) \( y(x) = \sqrt{x} e^{\frac{t^2}{2}} \)。 (II) \( V = \frac{\pi}{2} (e^4 - e) \)<input type="radio" name="s_4" class="selection" value="A" onclick="click_4()">
+          (B) (I) \( y(x) = \sqrt{x} e^{\frac{t^2}{2}} \)。 (II) \( V = \frac{\pi}{2} (e^4 - 1) \)<input type="radio" name="s_4" class="selection" value="B" onclick="click_4()">
+          (C) (I) \( y(x) = \sqrt{x} e^{\frac{t^2}{2}} \)。 (II) \( V = \frac{\pi}{2} e^4  \)<input type="radio" name="s_4" class="selection" value="C" onclick="click_4()">
+          (D) (I) \( y(x) = \sqrt{x} e^{\frac{t}{2}} \)。 (II) \( V = \frac{\pi}{2} (e^4 - e) \)<input type="radio" name="s_4" class="selection" value="D" onclick="click_4()">
+      </div><br>
+    </div>
+
+    <div id="question_5" class="questions">
+      <div id="q5" class="description">
+        5. 已知平面区域 \( D = \{(x,y) | |x| \leq y, (x^2 + y^2)^3 \leq y^4\} \)，计算二重积分 \( \iint_D \frac{x+y}{\sqrt{x^2 + y^2}}
+        \, dxdy \)
+      </div>
+      <div id="selection_5" class="selections">
+        (A) \(\frac{43}{120} \sqrt{3}\)<input type="radio" name="s_5" class="selection" value="A"
+          onclick="click_5()">
+        (B) \(\frac{43}{120} \sqrt{2}\)<input type="radio" name="s_5" class="selection" value="B"
+          onclick="click_5()">
+        (C) \(\frac{42}{120} \sqrt{2}\)<input type="radio" name="s_5" class="selection" value="C"
+          onclick="click_5()">
+        (D) \(\frac{43}{123} \sqrt{2}\)<input type="radio" name="s_5" class="selection" value="D"
+          onclick="click_5()">
+      </div><br>
+    </div>
+    
+    <div id="question_6" class="questions">
+      <div id="q6" class="description">
+        6. 已知函数 \( u(x,y) \) 满足 \( 2 \frac{\partial^2 u}{\partial x^2} - 2 \frac{\partial^2 u}{\partial y^2} + 3
+        \frac{\\partial u}{\partial x} + 3 \frac{\partial u}{\partial y} = 0 \)，求 \( a,b \) 的值，使得在变换 \( u(x,y) =
+        v(x,y)e^{ax+by} \) 下，上述等式可化为 \( v(x,y) \) 不含一阶偏导数的等式。
+      </div>
+      <div id="selection_6" class="selections">
+        (A) \( a = -\frac{3}{4}, b = \frac{3}{4} \)<input type="radio" name="s_6" class="selection" value="A" onclick="click_6()">
+        (B) \( a = -\frac{1}{2}, b = \frac{3}{4} \)<input type="radio" name="s_6" class="selection" value="B" onclick="click_6()">
+        (C) \( a = -\frac{3}{4}, b = \frac{3}{2} \)<input type="radio" name="s_6" class="selection" value="C" onclick="click_6()">
+        (D) \( a = -\frac{1}{4}, b = \frac{3}{4} \)<input type="radio" name="s_6" class="selection" value="D" onclick="click_6()">
+      </div><br>
+    </div>
+    
+    <div id="question_7" class="questions">
+      <div id="q7" class="description">
+        7. 已知函数 \( f(x) \) 在 \([0,1]\) 上具有 2 阶导数，且 \( f(0) = 0 \)，\( f(1) = 1 \)，\(\int_{0}^{1} f(x) dx = 1\)，证明： （Ⅰ）存在
+        \(\xi \in (0,1)\)，使得 \( f'(\xi) = 0 \)； （Ⅱ）存在 \(\\eta \in (0,1)\)，使得 \( f''(\eta) < -2 \)。
+      </div>
+      <div id="selection_7" class="selections">
+        (A) （Ⅰ）存在 \(\xi \in (-1,1)\)，使得 \( f'(\xi) = 0 \)。 （Ⅱ）存在 \(\eta \in (0,1)\)，使得 \( f''(\eta) < -2 \)<input type="radio" name="s_7" class="selection" value="A" onclick="click_7()">
+        (B) （Ⅰ）存在 \(\xi \in (0,1)\)，使得 \( f'(\xi) = 0 \)。 （Ⅱ）存在 \(\eta \in (0,1)\)，使得 \( f''(\eta) < -2 \)<input type="radio" name="s_7" class="selection" value="B" onclick="click_7()">
+        (C) （Ⅰ）存在 \(\xi \in (0,1)\)，使得 \( f'(\xi) = 0 \)。 （Ⅱ）存在 \(\eta \in (-1,1)\)，使得 \( f''(\eta) < -2 \)<input type="radio" name="s_7" class="selection" value="C" onclick="click_7()">
+        (D) （Ⅰ）存在 \(\xi \in (0,1)\)，使得 \( f'(\xi) = 0 \)。 （Ⅱ）存在 \(\eta \in (0,1)\)，使得 \( f''(\eta) < 0 \)<input type="radio" name="s_7" class="selection" value="D" onclick="click_7()">
+      </div><br>
+    </div>
+    
+    <div id="question_8" class="questions">
+      <div id="q8" class="description">
+        8. 已知矩阵 \( A = \begin{pmatrix} -2 & -2 & 1 \\ 2 & x & -2 \\ 0 & 0 & -2 \end{pmatrix} \) 与 \( B = \begin{pmatrix}
+        2 & 1 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & y \end{pmatrix} \) 相似。 （Ⅰ）求 \( x, y \)； （Ⅱ）求可逆矩阵 \( P \)，使得 \( P^{-1}AP =
+        B \)。
+      </div>
+      <div id="selection_8" class="selections">
+        (A) （Ⅰ）\( x = 3, y = -2 \)。 （Ⅱ）\( P = \begin{pmatrix} -1 & -1 & -1 \\ 2 & 1 & 2 \\ 0 & 0 & 4 \end{pmatrix} \)<input type="radio" name="s_8" class="selection"
+          value="A" onclick="click_8()">
+        (B) （Ⅰ）\( x = 3, y = -2 \)。 （Ⅱ）\( P = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 1 & 2 \\ 0 & 0 & 4 \end{pmatrix} \)<input type="radio" name="s_8" class="selection"
+          value="B" onclick="click_8()">
+        (C) （Ⅰ）\( x = 3, y = 2 \)。 （Ⅱ）\( P = \begin{pmatrix} -1 & -1 & -1 \\ 2 & 1 & 2 \\ 0 & 0 & 4 \end{pmatrix} \)<input type="radio" name="s_8" class="selection"
+          value="C" onclick="click_8()">
+        (D) （Ⅰ）\( x = -3, y = -2 \)。 （Ⅱ）\( P = \begin{pmatrix} -1 & -1 & -1 \\ 2 & 1 & 2 \\ 0 & 0 & 4 \end{pmatrix} \)<input type="radio" name="s_8" class="selection" value="D"
+          onclick="click_8()">
+      </div><br>
+    </div>
+
+
+  <button id="btn_submit" onclick="submit()">提交</button>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      MathJax.typesetPromise([document.querySelectorAll('.description')]);//利用querySelectorAll选择出同一类名的元素
+    });
+  </script>
+</body>
+</html>

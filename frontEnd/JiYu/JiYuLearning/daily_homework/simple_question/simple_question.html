@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>积语——每日刷题</title>
+    <link rel="stylesheet" href="simple_question.css">
+    <script src="simple_questions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+  <h1 class="title">
+    每 日 刷 题
+  </h1>
+  <div class="questions">
+    根据您的水平(新手)，以下是为您个性化定制的题目：
+  </div><br>
+  <div id="question_1" class="questions">
+  <div id="q1" class="description">
+1. 当 \(x \to 0\) 时，若 \(x - \tan x\) 与 \(x^k\) 是同阶无穷小，则 \(k =\) （    ）
+  </div>
+  <div id="selection_1" class="selections">
+    (A) 1<input type="radio" name="s_1" class="selection" value="A" onclick="click_1()">
+    (B) 2<input type="radio" name="s_1" class="selection" value="B" onclick="click_1()">
+    (C) 3<input type="radio" name="s_1" class="selection" value="C" onclick="click_1()">
+    (D) 4<input type="radio" name="s_1" class="selection" value="D" onclick="click_1()">
+  </div><br>
+  </div>
+
+  <div id="question_2" class="questions">
+  <div id="q2" class="description">
+2. 下列反常积分发散的是（ ） 
+  </div>
+  <div id="selection_2" class="selections">
+    (A) \( \int_{0}^{\infty} xe^{-x} dx \)<input type="radio" name="s_2" class="selection" value="A" onclick="click_2()">
+    (B) \( \int_{0}^{\infty} xe^{-x^2} dx \)<input type="radio" name="s_2" class="selection" value="B" onclick="click_2()">
+    (C) \(
+    \int_{0}^{\infty} \frac{\arctan x}{1+x^2} dx \)<input type="radio" name="s_2" class="selection" value="C" onclick="click_2()">
+    (D) \( \int_{0}^{\infty} \frac{x}{1+x^2} dx \)<input type="radio" name="s_2" class="selection" value="D" onclick="click_2()">
+  </div><br>
+  </div>
+
+    <div id="question_3" class="questions">
+      <div id="q3" class="description">
+3. \( \lim\limits_{x \to 0} (x + 2^x)^{\frac{2}{x}} = \) ______.
+      </div>
+      <div id="selection_3" class="selections">
+        (A) \(4e^2\)<input type="radio" name="s_3" class="selection" value="A" onclick="click_3()">
+        (B) \(2e^2\)<input type="radio" name="s_3" class="selection" value="B" onclick="click_3()">
+        (C) \(4e^4\)<input type="radio" name="s_3" class="selection" value="C" onclick="click_3()">
+        (D) \(2e^4\)<input type="radio" name="s_3" class="selection" value="D" onclick="click_3()">
+      </div><br>
+    </div>
+
+      <div id="question_4" class="questions">
+  <div id="q4" class="description">
+4. 曲线 \( x = t - \\sin t \)，在 \( t = \frac{3\pi}{2} \) 对应点处的切线在y轴上的截距为______。
+  </div>
+  <div id="selection_4" class="selections">
+    (A) \(\frac{3\pi}{3}+2\)<input type="radio" name="s_4" class="selection" value="A" onclick="click_4()">
+    (B) \(\frac{3\pi}{2}+1\)<input type="radio" name="s_4" class="selection" value="B" onclick="click_4()">
+    (C) \(\frac{3\pi}{2}\)<input type="radio" name="s_4" class="selection" value="C" onclick="click_4()">
+    (D) \(\frac{3\pi}{2}+2\)<input type="radio" name="s_4" class="selection" value="D" onclick="click_4()">
+  </div><br>
+  </div>
+
+  <button id="btn_submit" onclick="submit()">提交</button>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      MathJax.typesetPromise([document.querySelectorAll('.description')]);//利用querySelectorAll选择出同一类名的元素
+    });
+  </script>
+</body>
+</html>
