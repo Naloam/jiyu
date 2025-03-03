@@ -1,58 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎您使用积语——云伴学</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>积语——云伴学</title>
+    <link rel="stylesheet" href="./log.css">
 </head>
-<body>
-    <div class="intro-overlay">
-        <p>欢迎使用积语——云伴学！</p>
-    </div>
-    <div class="container" style="display: none;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <!-- 登录界面的窗口表格 -->
-        <form id="signinForm">
-            <h2>登录</h2>
-            <div class="inputBox">
-                <input type="text" placeholder="用户名" id="signinUsername">
-            </div>
-            <div class="inputBox">
-                <input type="password" placeholder="密码" id="signinPassword">
-            </div>
-            <div class="inputBox group">
-                <a href="#">忘记密码</a>
-                <a href="#" id="signup">注册</a>
-            </div>
-            <div class="inputBox">
-                <input type="submit" value="登录">
-            </div>
-        </form>
 
-        <!-- 注册界面的窗口表格 -->
-        <form id="signupForm">
-            <h2>注册</h2>
-            <div class="inputBox">
-                <input type="text" placeholder="用户名" id="signupUsername">
-            </div>
-            <div class="inputBox">
-                <input type="password" placeholder="输入密码" id="signupPassword">
-            </div>
-            <div class="inputBox">
-                <input type="password" placeholder="确认密码" id="confirmPassword">
-            </div>
-            <div class="inputBox">
-                <input type="submit" value="注册新用户">
-            </div>
-            <div class="inputBox group">
-                <a href="#">已拥有账号? <b id="signin">去登录</b></a>
-            </div>
+<body>
+    <div class="login">
+        <h1>登录</h1>
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="账号">
+            <input type="password" id="password" name="password" placeholder="密码">
+            <!-- <button onclick="btn_login()">登录</button> -->
         </form>
+        <!-- 手机端适配：点击登录直接跳转 -->
+        <button onclick="btn_login()">登录</button><br>
+        <!--注意：注册按钮需要放到from标签之外，否则会失效（因为会被from绑定的事件干扰）-->
+        <button onclick="window.location.href='register.html'">注册</button>
     </div>
-    <script type="module" src="login.js"></script>
-    <script type="module" src="../index/networkUtils.js"></script>
+    <script>
+
+    </script>
 </body>
+<script src="btn_beautify.js"></script>
+<script src="./login.js"></script>
+
 </html>

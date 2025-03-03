@@ -20,18 +20,6 @@
             <button id="normalButton">智能问答</button>
             <div class="dropdown-container">
                 <button id="btnToDoList">事项规划</button>
-                <div class="dropdown-menu" id="dropdownMenu_2">
-                    <div class="dropdown-buttons">
-                        <button class="learn-btn">
-                            事项清单
-                            <span class="description">坚持就是胜利！</span>
-                        </button>
-                        <button class="learn-btn">
-                            自定义事项
-                            <span class="description">根据学习路线合理分配您的时间</span>
-                        </button>
-                    </div>
-                </div>
             </div>
             <button id="btnMaterials">学习资料</button>
             <button id="expAndPoint">经验值与奖励</button>
@@ -150,5 +138,12 @@
     <script type="module" src="hisotryMessage.js"></script>
 
     <script src="deskPet.js"></script>
+
+    <!--点击"事项规划"跳转到对应的界面-->
+    <script>
+        document.getElementById("btnToDoList").addEventListener('click', function(){
+            window.location.href = "../work_management/pro.html";
+        }, false);
+    </script>
 </body>
 </html>

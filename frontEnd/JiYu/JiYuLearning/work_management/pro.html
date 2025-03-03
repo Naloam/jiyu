@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>今日待办</title>
+    <style>
+        /* 保持之前的样式不变 */
+        
+         :root {
+            --primary-color: #a4f5ec;
+            --secondary-color: #048d65;
+            --background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: var(--background);
+            padding: 20px;
+            background: url("../src/img/bg.jpg");
+        }
+        
+        .todo-app {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(132, 206, 246, 0.95);
+            /* background: url("../src/img/bg.jpg"); */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .todo-app::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(119, 172, 234, 0.091), transparent);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .todo-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .todo-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .todo-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(94, 114, 235, 0.3);
+        }
+        
+        .todo-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .todo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(94, 114, 235, 0.3);
+        }
+        
+        .todo-list {
+            margin: 1.5rem 0;
+        }
+        
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .complete,
+        .delete {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .complete {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .complete:hover {
+            background: #c8e6c9;
+        }
+        
+        .delete {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .delete:hover {
+            background: #ffcdd2;
+        }
+        
+        .completed {
+            opacity: 0.6;
+            background: #f8f9fa;
+        }
+        
+        .completed span {
+            text-decoration: line-through;
+        }
+        
+        .progress-container {
+            height: 12px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @media (max-width: 768px) {
+            .todo-app {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            .todo-form {
+                flex-direction: column;
+            }
+            .todo-button {
+                width: 100%;
+            }
+            .item {
+                padding: 0.8rem;
+                margin: 0.8rem 0;
+            }
+            .title {
+                font-size: 2rem;
+            }
+            .controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .complete,
+            .delete {
+                width: 100%;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="todo-app">
+        <h1 class="title">今日待办事项</h1>
+
+        <div class="todo-form">
+            <input class="todo-input" type="text" placeholder="添加新任务..." />
+            <button type="button" class="todo-button">添加任务</button>
+        </div>
+
+        <div class="todo-list"></div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const todoInput = document.querySelector(".todo-input");
+            const todoButton = document.querySelector(".todo-button");
+            const todoList = document.querySelector(".todo-list");
+            const progressBar = document.getElementById("progress-bar");
+
+            // 初始化时加载存储的任务
+            loadTasks();
+
+            // 支持回车键添加
+            todoInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    addNewTask();
+                }
+            });
+
+            todoButton.addEventListener("click", addNewTask);
+
+            function addNewTask() {
+                const task = todoInput.value.trim();
+                if (task) {
+                    addTask(task);
+                    todoInput.value = "";
+                    todoInput.focus();
+                    saveTasks(); // 保存到本地存储
+                }
+            }
+
+            function addTask(taskText, isCompleted = false) {
+                const item = document.createElement("div");
+                item.classList.add("item");
+                if (isCompleted) {
+                    item.classList.add("completed");
+                }
+                item.innerHTML = `
+                    <span>${taskText}</span>
+                    <div class="controls">
+                        <button class="complete">${isCompleted ? '恢复' : '完成'}</button>
+                        <button class="delete">删除</button>
+                    </div>
+                `;
+                todoList.appendChild(item);
+                updateProgressBar();
+            }
+
+            todoList.addEventListener("click", (e) => {
+                const target = e.target;
+                const item = target.closest(".item");
+
+                if (target.classList.contains("complete")) {
+                    item.classList.toggle("completed");
+                    target.textContent = item.classList.contains("completed") ? "恢复" : "完成";
+                    saveTasks(); // 保存到本地存储
+                    updateProgressBar();
+                } else if (target.classList.contains("delete")) {
+                    item.remove();
+                    saveTasks(); // 保存到本地存储
+                    updateProgressBar();
+                }
+            });
+
+            function updateProgressBar() {
+                const totalTasks = todoList.children.length;
+                const completedTasks = [...todoList.children].filter(
+                    item => item.classList.contains("completed")
+                ).length;
+                const progress = totalTasks > 0 ?
+                    (completedTasks / totalTasks) * 100 :
+                    0;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            // 本地存储功能
+            function saveTasks() {
+                const tasks = [];
+                document.querySelectorAll('.item').forEach(item => {
+                    tasks.push({
+                        text: item.querySelector('span').textContent,
+                        completed: item.classList.contains('completed')
+                    });
+                });
+                localStorage.setItem('todoTasks', JSON.stringify(tasks));
+            }
+
+            function loadTasks() {
+                const savedTasks = localStorage.getItem('todoTasks');
+                if (savedTasks) {
+                    JSON.parse(savedTasks).forEach(task => {
+                        addTask(task.text, task.completed);
+                    });
+                    updateProgressBar();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
