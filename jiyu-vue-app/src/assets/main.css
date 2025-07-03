@@ -1,0 +1,68 @@
+@import './base.css';
+
+/* 全局背景样式 - 只在特定页面使用 */
+#app {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  position: relative;
+  display: block;
+}
+
+/* 登录和注册页面背景 */
+.login-page,
+.register-page {
+  background-image: url('./bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* 移除body的全局背景，改为页面级别控制 */
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace, Arial, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* 主内容区域背景半透明遮罩 - 模仿原项目风格 */
+.main-content {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(33, 44, 55, 0.3);
+  overflow: hidden;
+}
+
+/* 工具栏样式 - 模仿原项目 */
+.toolbar-style {
+  background-color: #ffffff;
+  border-bottom: 2px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  #app {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+}

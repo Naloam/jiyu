@@ -1,0 +1,1046 @@
+/* 定义CSS变量 */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --hover-color: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* 头部样式 */
+header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.logo img {
+    width: 20%;
+    height: auto;
+}
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 导航菜单 */
+.nav {
+    display: flex; 
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #4a90e2;
+}
+
+/* 左侧边栏
+.left-bar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 240px;
+    background: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 900;
+}
+
+.left-bar .header {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+} */
+
+/* 替换原有.left-bar的移动端样式 */
+.left-bar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 240px;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: 900;
+}
+
+.left-bar.show {
+    transform: translateX(0);
+}
+
+.main {
+    margin-left: 240px;
+    transition: margin-left 0.3s;
+}
+
+/* 侧边栏隐藏时的主内容区 */
+.main.sidebar-hidden {
+    margin-left: 0;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    text-decoration: none;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.menu a:hover {
+    background: #f5f6fa;
+    color: #4a90e2;
+}
+
+.menu i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* 主内容区 */
+.main {
+    margin-left: 240px;
+    padding: 90px 5rem 2rem;
+}
+
+/* 搜索框 */
+.sousuo {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+/* 搜索框按钮样式 */
+.search-engine-name {
+    padding: 8px 15px;
+    background-color: #29ffd8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-engine-name:hover {
+    background-color: #2a9ffe;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.search-btn {
+    padding: 0.8rem 2rem;
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-btn:hover {
+    background: #357abd;
+}
+
+/* 新增代码 */
+.search {
+    position: relative;  /* 关键修复 父容器定位缺失
+    搜索引擎选择面板（.search-engine）的 CSS 中使用了 position: absolute，但其父容器 .search 未设置 position: relative，导致面板的定位基准错误，可能出现在不可见区域。*/ 
+}
+
+/* 搜索引擎选择面板 */
+.search-engine {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    z-index: 100;
+    padding: 1rem;
+}
+
+.search-engine.active {
+    display: block;
+}
+
+.search-engine-head {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-engine-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.search-engine-list li {
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.search-engine-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.search-engine-list li:hover {
+    background: #f5f6fa;
+}
+
+/* 卡片样式 */
+.card-box {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.item-tit {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.two-list-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-link {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    background: #f7f9fa;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.card-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-tit {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-desc {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 回到顶部按钮 */
+#get-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    background: #4a90e2;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#get-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#get-top:hover {
+    background: #357abd;
+    transform: translateY(-5px);
+}
+
+/* 页脚 */
+.footer {
+    background: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .left-bar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+
+    .left-bar.show {
+        transform: translateX(0);
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .nav-btn {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav.show {
+        display: block;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header .main {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo span {
+        font-size: 1.2rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-engine-name {
+        width: 100%;
+    }
+}
+
+/*轮播图片*/
+.carousel-container {
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-slides {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    position: relative;
+    width: 33.333%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0, 51, 145, 0.7));
+    color: white;
+}
+
+.slide-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.carousel-button.prev {
+    left: 20px;
+}
+
+.carousel-button.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+/* 轮播图片的 hover 效果 */
+.slide-link {
+    display: block;
+    position: relative;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.slide-link:hover .slide-content {
+    background: linear-gradient(transparent, rgba(0, 51, 145, 0.8));
+}
+
+.slide-link img {
+    transition: transform 0.3s;
+}
+
+.slide-link:hover img {
+    transform: scale(1.05);
+}
+
+/*dot为轮播图下面的圆点*/
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: rgb(255, 255, 255);
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        height: 300px;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* 背景图片 */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* 调节背景透明度 */
+    z-index: -1;
+}
+
+/* 修改原有内容容器的背景透明度 */
+header,
+.left-bar,
+.card-box,
+.sousuo {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* 在Navigator.css中添加 */
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+.nav-btn:hover {
+    color: #4a90e2;
+}
+
+/* 移动端适配 */
+@media (max-width: 992px) {
+    .nav-btn {
+        display: block;
+    }
+    .main.sidebar-hidden {
+        margin-left: 0;
+    }
+}
+
+/* 在 Navigator.css 中添加以下样式 */
+.dual-search-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.academic-search .search-engine-name {
+    background-color: #27ae60;
+}
+
+.academic-search .search-engine-name:hover {
+    background-color: #219a52;
+}
+
+@media (max-width: 768px) {
+    .dual-search-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-engine-name span {
+        display: inline; /* 保持文字显示 */
+    }
+}
+
+/* 在 Navigator.css 添加 */
+.dual-search-container {
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.academic-search .search-engine-name {
+    background: #27ae60;
+    border-color: #1e8449;
+}
+
+.academic-search .search-engine-name:hover {
+    background: #219a52;
+}
+
+.search-engine {
+    min-width: 280px;
+}
+
+.search-engine-list {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+    .search-engine {
+        width: 100%;
+        left: 0;
+        right: auto;
+    }
+}
+
+/* 右键菜单样式优化 */
+.context-menu {
+    position: fixed;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    z-index: 9999;
+    display: none;
+    padding: 5px 0;
+    min-width: 120px;
+    max-width: 200px;
+    transition: opacity 0.2s ease;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.context-menu li {
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.context-menu li:hover {
+    background: #f5f6fa;
+    color: #4a90e2;
+}
+
+/* 收藏按钮样式优化 */
+#favorites-btn {
+    position: relative;
+}
+
+#favorites-btn.active a {
+    color: #e74c3c;
+}
+
+#favorites-btn.active i {
+    color: #e74c3c;
+    animation: heartBeat 0.3s ease-in-out;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* 设置弹窗样式 */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.settings-content {
+    background: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.settings-header {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.settings-body {
+    padding: 1.5rem;
+}
+
+.setting-item {
+    margin-bottom: 1.5rem;
+}
+
+.setting-item:last-child {
+    margin-bottom: 0;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.setting-item select,
+.setting-item input[type="range"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.setting-item input[type="range"] {
+    padding: 0;
+    height: 6px;
+    -webkit-appearance: none;
+    background: #ddd;
+    border-radius: 3px;
+    outline: none;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 主题样式 */
+body.light {
+    background-color: #f5f6fa;
+    color: #333;
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark .card-box,
+body.dark .sousuo,
+body.dark header,
+body.dark .left-bar {
+    background: rgba(30, 30, 30, 0.85);
+}
+
+body.dark .card-link {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+body.dark .card-desc {
+    color: #ccc;
+}
+
+/* 卡片样式 */
+.card-link.minimal {
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid #eee;
+}
+
+.card-link.gradient {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+}
+
+.card-link.gradient .card-desc {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .settings-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .settings-body {
+        padding: 1rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-box {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* 加载动画 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 空状态样式 */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* 工具提示样式 */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--secondary-color);
+}
+
+/* 深色主题 */
+[data-theme="dark"] {
+    --primary-color: #66bb6a;
+    --secondary-color: #42a5f5;
+    --text-color: #fff;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --hover-color: #2d2d2d;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 收藏按钮样式 */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #ccc;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn i {
+    transition: all 0.3s ease;
+}
+
+.favorite-btn i.fas {
+    color: #ffd700;
+}
+
+.card-link {
+    position: relative;
+}
+
+/* 收藏按钮动画 */
+@keyframes starPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.favorite-btn i.fas {
+    animation: starPop 0.3s ease;
+    animation-fill-mode: forwards;
+}
+
+/* 深色主题下的收藏按钮样式 */
+[data-theme="dark"] .favorite-btn {
+    color: #666;
+}
+
+[data-theme="dark"] .favorite-btn i.fas {
+    color: #ffd700;
+}
+
+/* 收藏按钮悬停效果 */
+.favorite-btn:hover i {
+    transform: scale(1.1);
+}
+
+.favorite-btn i.far {
+    transition: transform 0.3s ease;
+}
+
+.favorite-btn i.fas {
+    transition: transform 0.3s ease, color 0.3s ease;
+}

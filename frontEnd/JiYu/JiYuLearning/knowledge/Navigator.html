@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>积雨·云伴学</title>
+    <meta name="keywords" content="导航，学习资料" />
+    <meta name="description" content="积雨·云伴学" />
+    <!-- 引css文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="Navigator.css">
+</head>
+
+<body id="nav_body">
+
+    <!-- 背景图片 -->
+    <div class="background"></div>
+
+    <!-- 网站头 -->
+    <header>
+        <div class="main">
+            <!-- 添加切换按钮 -->
+            <button id="sidebarToggle" class="nav-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <h1 id="nav-toggle" class="logo">
+                <a href="Navigator.html">
+                    <img src="bg_jiyu.png" alt="logo">
+                    <span>学习资料</span>
+                </a>
+            </h1>
+
+            <!-- 右键菜单 -->
+            <div id="context-menu" class="context-menu">
+                <ul>
+                    <li id="menu-copy"><i class="fas fa-copy"></i>复制链接</li>
+                    <li id="menu-open"><i class="fas fa-external-link-alt"></i>在新标签页打开</li>
+                </ul>
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="/*把主页的网址放在这里*/" class="active"><i class="fas fa-home"></i> 首页</a></li>
+                    <li id="favorites-btn"><a href="#favorites"><i class="fas fa-heart"></i> 收藏</a></li>
+                    <li id="settings-btn"><a href="#settings"><i class="fas fa-cog"></i> 设置</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- 主页部分 -->
+    <div id="content">
+        <!-- 左栏 -->
+        <div class="left-bar">
+            <div class="header">
+                <h1>知识导航</h1>
+            </div>
+            <div class="menu" id="menu">
+                <ul class="scrollcontent">
+                    <li><a href="#row-1"><i class="fas fa-graduation-cap"></i> 微积分</a></li>
+                    <li><a href="#row-2"><i class="fas fa-code"></i> 线性代数</a></li>
+                    <li><a href="#row-3"><i class="fas fa-book"></i> 概率统计</a></li>
+                    <li><a href="#row-4"><i class="fas fa-coffee"></i> 微分方程</a></li>
+                    <li><a href="#row-5"><i class="fas fa-tools"></i> 数学建模</a></li>
+                    <li><a href="#row-6"><i class="fas fa-palette"></i> 高级数学</a></li>
+                    <li><a href="#row-7"><i class="fas fa-calculator"></i> 学习工具集成</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主要部分 -->
+        <div class="main">
+            <div class="container content-box">
+                <!-- 选择搜索引擎 -->
+
+ <!-- 修改 Navigator.html 搜索框结构 -->
+<section class="sousuo">
+    <div class="dual-search-container">
+        <!-- 通用搜索 -->
+        <div class="search">
+            <div class="search-box">
+                <button class="search-engine-name" id="main-engine">
+                    <i class="fas fa-search"></i>
+                    <span>Google</span>
+                </button>
+                <input type="text" id="main-search" class="search-input" placeholder="输入关键字，回车搜索">
+                <button class="search-btn" id="main-search-btn">搜索</button>
+            </div>
+            <div class="search-engine">
+                <div class="search-engine-head">
+                    <strong>通用引擎：</strong>
+                </div>
+                <ul class="search-engine-list" id="main-engine-list"></ul>
+            </div>
+        </div>
+
+        <!-- 学术搜索 -->
+        <div class="search academic-search">
+            <div class="search-box">
+                <button class="search-engine-name" id="academic-engine">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
+                </button>
+                <input type="text" id="academic-search" class="search-input" placeholder="输入学术关键词">
+                <button class="search-btn" id="academic-search-btn">搜索</button>
+            </div>
+            <div class="search-engine">
+                <div class="search-engine-head">
+                    <strong>学术引擎：</strong>
+                </div>
+                <ul class="search-engine-list" id="academic-engine-list"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+                
+                <!-- 轮播图 -->
+                <section class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-slides">
+                            <!-- 第一张：高等数学 -->
+                            <div class="slide">
+                                <a href="https://www.bilibili.com/video/BV1Eb411u7Fw" target="_blank" class="slide-link">
+                                    <img src="1.jpg" alt="高等数学教学">
+                                    <div class="slide-content">
+                                        <h2>宋浩高等数学</h2>
+                                        <p>点击观看B站完整教学视频课程</p>
+                                    </div>
+                                </a>
+                            </div>
+                
+                            <!-- 第二张：数学建模 -->
+                            <div class="slide">
+                                <a href="https://dxs.moe.gov.cn/zx/hd/sxjm/dxsx/dxsxmnsj/" target="_blank" class="slide-link">
+                                    <img src="2.png" alt="数学建模竞赛">
+                                    <div class="slide-content">
+                                        <h2>全国数学建模竞赛</h2>
+                                        <p>官方赛事信息与历年优秀作品</p>
+                                    </div>
+                                </a>
+                            </div>
+                
+                            <!-- 第三张：考研数学 -->
+                            <div class="slide">
+                                <a href="https://kmath.cn/math/" target="_blank" class="slide-link">
+                                    <img src="3.png" alt="考研数学资源">
+                                    <div class="slide-content">
+                                        <h2>考研数学宝典</h2>
+                                        <p>历年真题解析与专题训练</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="carousel-button prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-button next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </section>
+
+                <!-- 微积分 -->
+                <section class="item card-box" id="row-1">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-calculator"></i> 微积分</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/"
+                                        class="card-link" target="_blank">
+                                        <div class="card-tit">MIT微积分课程</div>
+                                        <div class="card-desc">MIT开放式课程，包含完整教学视频、讲义和习题。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.khanacademy.org/math/calculus-1" class="card-link"
+                                        target="_blank">
+                                        <div class="card-tit">可汗学院</div>
+                                        <div class="card-desc">从极限到积分完整知识体系，配套交互练习。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1Eb411u7Fw" class="card-link" target="_blank">
+                                        <div class="card-tit">宋浩高等数学</div>
+                                        <div class="card-desc">B站知名数学教师，讲解深入浅出。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">张宇高等数学</div>
+                                        <div class="card-desc">考研名师，系统讲解高等数学。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">汤家凤高等数学</div>
+                                        <div class="card-desc">考研名师，重点突出，适合基础薄弱者。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">武忠祥高等数学</div>
+                                        <div class="card-desc">考研名师，讲解细致，适合提高。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.3blue1brown.com/topics/calculus" class="card-link" target="_blank">
+                                        <div class="card-tit">3Blue1Brown微积分</div>
+                                        <div class="card-desc">可视化微积分概念，直观理解数学原理。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucdavis.edu/~kouba/CalcOneDIRECTORY/" class="card-link" target="_blank">
+                                        <div class="card-tit">UC Davis微积分习题集</div>
+                                        <div class="card-desc">包含大量习题和详细解答，按章节分类。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.utah.edu/~gustafso/calculus/" class="card-link" target="_blank">
+                                        <div class="card-tit">Utah微积分练习</div>
+                                        <div class="card-desc">提供交互式练习和在线测验。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucla.edu/~yanovsky/Teaching/Math151A/" class="card-link" target="_blank">
+                                        <div class="card-tit">UCLA微积分习题库</div>
+                                        <div class="card-desc">包含历年考试真题和习题解答。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 线性代数 -->
+                <section class="item card-box" id="row-2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-cube"></i> 线性代数</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1ys411472E" class="card-link"
+                                        target="_blank">
+                                        <div class="card-tit">MIT Gilbert Strang 课程</div>
+                                        <div class="card-desc">线性代数经典课程，深入理解矩阵与向量空间。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://textbooks.math.gatech.edu/ila/" class="card-link" target="_blank">
+                                        <div class="card-tit">交互式线性代数</div>
+                                        <div class="card-desc">佐治亚理工在线教材，支持3D可视化演示。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.3blue1brown.com/topics/linear-algebra" class="card-link" target="_blank">
+                                        <div class="card-tit">3Blue1Brown线性代数</div>
+                                        <div class="card-desc">直观理解线性代数的本质，可视化教学。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">李永乐线性代数</div>
+                                        <div class="card-desc">考研名师，讲解系统全面。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">张宇线性代数</div>
+                                        <div class="card-desc">考研名师，重点突出。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">汤家凤线性代数</div>
+                                        <div class="card-desc">考研名师，适合基础薄弱者。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucdavis.edu/~linear/" class="card-link" target="_blank">
+                                        <div class="card-tit">UC Davis线性代数习题集</div>
+                                        <div class="card-desc">包含习题、解答和在线工具。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucla.edu/~yanovsky/Teaching/Math131B/" class="card-link" target="_blank">
+                                        <div class="card-tit">UCLA线性代数练习</div>
+                                        <div class="card-desc">提供习题集和考试真题。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.utah.edu/~gustafso/linear/" class="card-link" target="_blank">
+                                        <div class="card-tit">Utah线性代数习题库</div>
+                                        <div class="card-desc">包含交互式练习和详细解答。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 概率统计 -->
+                <section class="item card-box" id="row-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-chart-bar"></i> 概率统计</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://seeing-theory.brown.edu/" class="card-link" target="_blank">
+                                        <div class="card-tit">可视化概率统计</div>
+                                        <div class="card-desc">布朗大学交互式学习平台，直观理解统计概念。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.probabilitycourse.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">概率论百科全书</div>
+                                        <div class="card-desc">包含600+个详细案例与解决方案。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1VJ411X7Ng" class="card-link" target="_blank">
+                                        <div class="card-tit">张宇概率统计</div>
+                                        <div class="card-desc">考研名师，讲解系统全面。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">汤家凤概率统计</div>
+                                        <div class="card-desc">考研名师，适合基础薄弱者。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">王式安概率统计</div>
+                                        <div class="card-desc">考研名师，重点突出。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.statistics.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Statistics.com</div>
+                                        <div class="card-desc">提供在线统计课程和认证。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.statlect.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">StatLect</div>
+                                        <div class="card-desc">免费的概率统计在线教材。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.r-project.org/" class="card-link" target="_blank">
+                                        <div class="card-tit">R语言统计</div>
+                                        <div class="card-desc">统计分析和数据可视化的专业工具。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.statlect.com/exercises/" class="card-link" target="_blank">
+                                        <div class="card-tit">StatLect习题集</div>
+                                        <div class="card-desc">提供概率统计习题和解答。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.probabilitycourse.com/chapter1/1_4_5_solved.php" class="card-link" target="_blank">
+                                        <div class="card-tit">概率论习题集</div>
+                                        <div class="card-desc">包含详细的习题解答和解释。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.statistics.com/exercises/" class="card-link" target="_blank">
+                                        <div class="card-tit">Statistics.com练习</div>
+                                        <div class="card-desc">提供在线统计练习和测验。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 微分方程 -->
+                <section class="item card-box" id="row-4">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-wave-square"></i> 微分方程</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://tutorial.math.lamar.edu/Classes/DE/DE.aspx" class="card-link"
+                                        target="_blank">
+                                        <div class="card-tit">Paul's Notes</div>
+                                        <div class="card-desc">包含常微分方程与偏微分方程的详细解法手册。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">张宇微分方程</div>
+                                        <div class="card-desc">考研名师，系统讲解微分方程。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">汤家凤微分方程</div>
+                                        <div class="card-desc">考研名师，适合基础薄弱者。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">武忠祥微分方程</div>
+                                        <div class="card-desc">考研名师，讲解细致。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucdavis.edu/~differential/" class="card-link" target="_blank">
+                                        <div class="card-tit">UC Davis微分方程习题集</div>
+                                        <div class="card-desc">包含习题、解答和交互式演示。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.wolframalpha.com/examples/differential-equations/" class="card-link" target="_blank">
+                                        <div class="card-tit">Wolfram微分方程</div>
+                                        <div class="card-desc">提供微分方程求解器和示例。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ubc.ca/~israel/m215/diffeqs/diffeqs.html" class="card-link" target="_blank">
+                                        <div class="card-tit">UBC微分方程练习</div>
+                                        <div class="card-desc">提供习题集和详细解答。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.utah.edu/~gustafso/diffeq/" class="card-link" target="_blank">
+                                        <div class="card-tit">Utah微分方程习题库</div>
+                                        <div class="card-desc">包含交互式练习和考试真题。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 数学建模 -->
+                <section class="item card-box" id="row-5">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-project-diagram"></i> 数学建模</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.comap.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">COMAP 官网</div>
+                                        <div class="card-desc">美国大学生数学建模竞赛官方资源平台。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathmodels.org/" class="card-link" target="_blank">
+                                        <div class="card-tit">数学建模资源库</div>
+                                        <div class="card-desc">包含历年优秀论文和建模方法。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">姜启源数学建模</div>
+                                        <div class="card-desc">数学建模经典教材作者讲解。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">数学建模竞赛培训</div>
+                                        <div class="card-desc">系统讲解数学建模竞赛技巧。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">数学建模软件教程</div>
+                                        <div class="card-desc">常用建模软件使用教程。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathmodels.org/software/" class="card-link" target="_blank">
+                                        <div class="card-tit">建模软件工具</div>
+                                        <div class="card-desc">常用数学建模软件介绍和使用教程。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathmodels.org/cases/" class="card-link" target="_blank">
+                                        <div class="card-tit">建模案例库</div>
+                                        <div class="card-desc">包含各类实际问题的建模案例。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathmodels.org/competitions/" class="card-link" target="_blank">
+                                        <div class="card-tit">建模竞赛信息</div>
+                                        <div class="card-desc">各类数学建模竞赛信息和资源。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathmodels.org/practice/" class="card-link" target="_blank">
+                                        <div class="card-tit">建模练习题库</div>
+                                        <div class="card-desc">提供历年建模竞赛真题和练习。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.comap.com/undergraduate/contests/" class="card-link" target="_blank">
+                                        <div class="card-tit">MCM/ICM真题库</div>
+                                        <div class="card-desc">美国大学生数学建模竞赛历年真题。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathmodels.org/solutions/" class="card-link" target="_blank">
+                                        <div class="card-tit">优秀论文解析</div>
+                                        <div class="card-desc">包含获奖论文分析和解题思路。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 高级数学 -->
+                <section class="item card-box" id="row-6">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-infinity"></i> 高级数学</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://mathworld.wolfram.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Wolfram MathWorld</div>
+                                        <div class="card-desc">最全面的数学百科全书，涵盖实分析、复分析等高级内容。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">实分析课程</div>
+                                        <div class="card-desc">系统讲解实分析理论和应用。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">复分析课程</div>
+                                        <div class="card-desc">系统讲解复分析理论和应用。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">泛函分析课程</div>
+                                        <div class="card-desc">系统讲解泛函分析理论和应用。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucdavis.edu/~complex/" class="card-link" target="_blank">
+                                        <div class="card-tit">复分析习题集</div>
+                                        <div class="card-desc">包含复分析课程习题和解答。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ubc.ca/~israel/m215/analysis/analysis.html" class="card-link" target="_blank">
+                                        <div class="card-tit">实分析练习</div>
+                                        <div class="card-desc">提供实分析习题和详细解答。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.utah.edu/~gustafso/analysis/" class="card-link" target="_blank">
+                                        <div class="card-tit">数学分析习题库</div>
+                                        <div class="card-desc">包含交互式练习和考试真题。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.math.ucdavis.edu/~topology/" class="card-link" target="_blank">
+                                        <div class="card-tit">拓扑学</div>
+                                        <div class="card-desc">提供拓扑学课程和学习资源。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 学习工具集成 -->
+                <section class="item card-box" id="row-7">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="item-tit">
+                                <strong><i class="fas fa-tools"></i> 学习工具集成</strong>
+                            </div>
+                            <div class="clearfix two-list-box">
+                                <!-- 计算与绘图工具 -->
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.desmos.com/scientific" class="card-link" target="_blank">
+                                        <div class="card-tit">Desmos 科学计算器</div>
+                                        <div class="card-desc">功能强大的在线科学计算器，支持复杂计算和单位转换。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.geogebra.org/graphing" class="card-link" target="_blank">
+                                        <div class="card-tit">GeoGebra 图形计算器</div>
+                                        <div class="card-desc">专业的数学绘图工具，支持函数图像、几何图形绘制。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.wolframalpha.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Wolfram Alpha</div>
+                                        <div class="card-desc">强大的知识计算引擎，可解答各类数学问题。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://matrixcalc.org/" class="card-link" target="_blank">
+                                        <div class="card-tit">矩阵计算器</div>
+                                        <div class="card-desc">支持矩阵运算、特征值计算、行列式等线性代数运算。</div>
+                                    </a>
+                                </div>
+                                <!-- 解题与学习工具 -->
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.symbolab.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Symbolab 解题器</div>
+                                        <div class="card-desc">智能数学解题工具，提供详细的解题步骤和解释。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathway.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Mathway</div>
+                                        <div class="card-desc">全面的数学问题解决工具，覆盖从基础到高级数学。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.quickmath.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">QuickMath</div>
+                                        <div class="card-desc">快速解决代数、微积分、矩阵等数学问题。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.integral-calculator.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">积分计算器</div>
+                                        <div class="card-desc">支持定积分、不定积分计算，提供详细步骤。</div>
+                                    </a>
+                                </div>
+                                <!-- 统计与概率工具 -->
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.statcrunch.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">StatCrunch</div>
+                                        <div class="card-desc">专业的统计分析工具，支持数据可视化。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.socscistatistics.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Social Science Statistics</div>
+                                        <div class="card-desc">提供各种统计检验和概率计算工具。</div>
+                                    </a>
+                                </div>
+                                <!-- 公式编辑与排版工具 -->
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathcha.io/" class="card-link" target="_blank">
+                                        <div class="card-tit">Mathcha 编辑器</div>
+                                        <div class="card-desc">在线数学公式编辑器，支持LaTeX语法。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.overleaf.com/" class="card-link" target="_blank">
+                                        <div class="card-tit">Overleaf</div>
+                                        <div class="card-desc">在线LaTeX编辑器，适合数学论文排版。</div>
+                                    </a>
+                                </div>
+                                <!-- 微分方程工具 -->
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.wolframalpha.com/examples/differential-equations/" class="card-link" target="_blank">
+                                        <div class="card-tit">微分方程求解器</div>
+                                        <div class="card-desc">支持常微分方程和偏微分方程的求解。</div>
+                                    </a>
+                                </div>
+                                <!-- 单位换算工具 -->
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.unitconverters.net/" class="card-link" target="_blank">
+                                        <div class="card-tit">单位换算器</div>
+                                        <div class="card-desc">支持各种物理和数学单位的转换。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.mathway.com/examples/" class="card-link" target="_blank">
+                                        <div class="card-tit">Mathway习题集</div>
+                                        <div class="card-desc">提供各类数学问题的示例和解答。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.symbolab.com/practice/" class="card-link" target="_blank">
+                                        <div class="card-tit">Symbolab练习</div>
+                                        <div class="card-desc">包含交互式练习和详细步骤。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.quickmath.com/examples/" class="card-link" target="_blank">
+                                        <div class="card-tit">QuickMath示例库</div>
+                                        <div class="card-desc">提供各类数学问题的示例和解答。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">MATLAB教程</div>
+                                        <div class="card-desc">系统讲解MATLAB使用。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">Python数学计算</div>
+                                        <div class="card-desc">Python数学计算库使用教程。</div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <a href="https://www.bilibili.com/video/BV1GJ411x7h7" class="card-link" target="_blank">
+                                        <div class="card-tit">LaTeX排版教程</div>
+                                        <div class="card-desc">数学公式排版教程。</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到顶部按键 -->
+    <div id="get-top" title="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>© 积雨·云伴学 我的软件创新大赛果然有问题 </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Navigator.js"></script>
+</body>
+
+</html>

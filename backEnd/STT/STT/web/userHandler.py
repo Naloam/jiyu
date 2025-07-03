@@ -22,11 +22,10 @@ def signup():
     # 生成所谓的userId
     userId = str(uuid.uuid4())[:18]
     # 密码加密
-    password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=10))+
-
+    password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=10))
     password = password.decode('utf-8')
     # 插入数据库
-    # res = userService.insert(name, password, userId) and knowledgeService.insert(userId)
+    res = userService.insert(name, password, userId) and knowledgeService.insert(userId)
     if res:
         return jsonify({"message": "signup success"})
     else:
