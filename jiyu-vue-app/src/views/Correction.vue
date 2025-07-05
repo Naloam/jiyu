@@ -1,31 +1,11 @@
 <template>
   <ScrollContainer class="correction-container" height="100vh">
-    <!-- 页面头部 -->
-    <div class="correction-header">
-      <div class="header-content">
-        <div class="header-left">
-          <h1 class="page-title">
-            <el-icon><EditPen /></el-icon>
-            批改订正
-          </h1>
-          <p class="page-subtitle">上传题目和答案，获得AI智能批改和建议</p>
-        </div>
-        <div class="header-right">
-          <el-button type="primary" @click="$router.push('/chat')" :icon="ChatDotRound" size="large">
-            智能问答
-          </el-button>
-        </div>
-      </div>
-      
-      <!-- 导航按钮 -->
-      <div class="navigation-buttons">
-        <el-button-group>
-          <el-button @click="$router.push('/dashboard')">返回首页</el-button>
-          <el-button @click="$router.push('/materials')">学习资料</el-button>
-          <el-button @click="$router.push('/daily-practice')">每日练习</el-button>
-        </el-button-group>
-      </div>
-    </div>
+    <!-- 全局顶部工具栏 -->
+    <GlobalToolbar 
+      @toggle-settings="toggleSettings"
+    />
+    <!-- 背景图片 -->
+    <div class="background"></div>
 
     <!-- 主要操作区域 -->
     <el-row :gutter="24">
@@ -216,6 +196,7 @@
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
 import ScrollContainer from '@/components/common/ScrollContainer.vue'
+import GlobalToolbar from '@/components/common/GlobalToolbar.vue'
 import { 
   EditPen, Camera, Delete, Check, Promotion, Close, ChatDotRound 
 } from '@element-plus/icons-vue'
@@ -400,71 +381,62 @@ const getScoreType = (score: number) => {
   if (score >= 70) return 'warning'
   return 'danger'
 }
+
+// 设置处理
+const toggleSettings = () => {
+  ElMessage.info('设置功能即将上线')
+}
 </script>
 
 <style scoped lang="scss">
 .correction-container {
-  padding: 24px;
-  background: #f5f7fa;
+  background-color: #f5f7fa;
+  padding: 70px 20px 20px;
+  min-height: 100vh;
 }
 
-.correction-header {
-  margin-bottom: 32px;
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .header-left {
-    text-align: left;
-  }
-  
-  .header-right {
-    flex-shrink: 0;
-  }
-  
-  .page-title {
-    font-size: 28px;
-    color: #303133;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0;
-  }
-  
-  .page-subtitle {
-    color: #909399;
-    font-size: 16px;
-    margin: 0 0 16px 0;
-  }
+/* 主要操作区域 - 向下调整位置来适应顶部工具栏 */
+.el-row {
+  margin-top: 20px;
 }
 
-.navigation-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+/* 背景 */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
 }
 
+// 卡片样式
 .upload-card {
   margin-bottom: 24px;
-  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  
+  &:hover {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
+  }
   
   .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 600;
+    font-weight: bold;
   }
   
   .button-group {
     margin-top: 16px;
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
   }
 }
 

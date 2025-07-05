@@ -27,12 +27,6 @@ const router = createRouter({
     },
 
     {
-      path: '/materials',
-      name: 'materials',
-      component: () => import('../views/Materials.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
       path: '/planning',
       name: 'planning',
       component: () => import('../views/Planning.vue'),

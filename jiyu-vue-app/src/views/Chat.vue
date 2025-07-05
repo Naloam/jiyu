@@ -1,49 +1,16 @@
 <template>
   <ScrollContainer class="chat-page" height="100vh">
-    <!-- 顶部工具栏 -->
-    <div class="toolbar">
-      <img src="@/assets/logo.svg" alt="Logo" class="toolbar-logo">
-      <div class="buttons">
-        <el-button text @click="navigateTo('/dashboard')" :class="{ active: $route.path === '/dashboard' }">主界面</el-button>
-        <el-button text @click="navigateTo('/daily-practice')" :class="{ active: $route.path === '/daily-practice' }">每日刷题</el-button>
-        <el-button text :class="{ active: $route.path === '/chat' }">智能问答</el-button>
-        <el-button text @click="navigateTo('/planning')" :class="{ active: $route.path === '/planning' }">事项规划</el-button>
-        <el-button text @click="navigateTo('/materials')" :class="{ active: $route.path === '/materials' }">学习资料</el-button>
-        <el-button text @click="navigateTo('/correction')" :class="{ active: $route.path === '/correction' }">批改订正</el-button>
-        <el-button text @click="showExpPointsDialog = true">经验值与奖励</el-button>
-        
-        <!-- 个性化学习下拉菜单 -->
-        <div class="dropdown-container" @mouseover="showPersonalizedMenu = true" @mouseleave="showPersonalizedMenu = false">
-          <el-button text>个性化学习</el-button>
-          <div class="dropdown-menu" v-show="showPersonalizedMenu">
-            <div class="dropdown-buttons">
-              <el-button class="learn-btn" @click="createFeynmanChatWindow">
-                费曼学习法
-                <span class="description">用自己的语言解释所学知识来加深理解和记忆</span>
-              </el-button>
-              <el-button class="learn-btn" @click="showFeatureComingSoon">
-                智能规划
-                <span class="description">让AI来帮您定制学习路线吧！</span>
-              </el-button>
-              <el-button class="learn-btn" @click="showFeatureComingSoon">
-                敬请期待
-                <span class="description">敬请期待多种学习方法</span>
-              </el-button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="settings">
-        <span class="username-display">{{ username }}</span>
-        <el-button :icon="Setting" circle @click="toggleSidebar" />
-      </div>
-    </div>
+    <!-- 全局顶部工具栏 -->
+    <GlobalToolbar 
+      @toggle-settings="toggleSidebar" 
+      @feature-click="handleFeatureClick" 
+    />
     
     <!-- 侧边栏 -->
     <div class="sidebar" :class="{ open: sidebarOpen }">
       <h2>设置</h2>
       <el-button text @click="showGuide">使用指南</el-button>
+      <el-button text @click="showExpPointsDialog = true">经验值与奖励</el-button>
       <el-button text @click="showChangePasswordDialog = true">修改密码</el-button>
       <el-button type="danger" @click="logout">退出登录</el-button>
     </div>
@@ -236,6 +203,7 @@ import { ref, reactive, computed, onMounted, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import ScrollContainer from '@/components/common/ScrollContainer.vue'
+import GlobalToolbar from '@/components/common/GlobalToolbar.vue'
 import { Setting, Close, Minus, Picture } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import dayjs from 'dayjs'
@@ -393,11 +361,6 @@ const getChatStyle = (chat: any, index: number) => {
     height: '600px',
     zIndex: 999
   }
-}
-
-// 路由导航
-const navigateTo = (path: string) => {
-  router.push(path)
 }
 
 // 显示功能即将推出提示
@@ -718,6 +681,20 @@ const logout = () => {
   }).catch(() => {})
 }
 
+// 处理特性点击
+const handleFeatureClick = (feature: string) => {
+  switch (feature) {
+    case 'feynman':
+      createFeynmanChatWindow()
+      break
+    case 'planning':
+    case 'coming-soon':
+    default:
+      showFeatureComingSoon()
+      break
+  }
+}
+
 // 初始化桌面宠物动画
 const initDeskPet = () => {
   if (!petRef.value) return
@@ -790,82 +767,24 @@ watch(() => chatWindows.value.length, () => {
   background-attachment: fixed;
 }
 
-// 工具栏样式
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ffffff;
-  border-bottom: 2px solid #ddd;
-  padding: 10px;
-  position: fixed;
-  top: 0;
+// 动画
+.img {
+  position: absolute;
+  bottom: 0;
   right: 0;
-  width: 100%;
-  height: 50px;
-  z-index: 1200;
-  margin-bottom: 10px;
-  
-  .toolbar-logo {
-    width: 8vw;
-    height: 3vw;
-    object-fit: contain;
-    margin-left: 10%;
-  }
-  
-  .buttons {
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-start;
-    
-    :deep(.el-button) {
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 10px 15px;
-      position: relative;
-      transition: color 0.3s;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 0;
-        height: 2px;
-        background-color: #007bff;
-        transition: width 0.3s ease-in-out;
-      }
-      
-      &:hover, &.active {
-        color: #007bff;
-        
-        &::after {
-          width: 100%;
-        }
-      }
-    }
-  }
-  
-  .settings {
-    position: absolute;
-    right: 10%;
-    text-align: right;
-    z-index: 1001;
-    
-    .username-display {
-      margin-right: 15px;
-      font-weight: bold;
-      font-size: 18px;
-      color: #1a17db;
-      margin-top: -10px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
+  width: 150px;
+  height: 150px;
+  z-index: 900;
+}
+
+// 桌面宠物容器
+#parentDiv {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  z-index: 900;
 }
 
 // 下拉菜单样式

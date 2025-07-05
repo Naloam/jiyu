@@ -17,7 +17,7 @@
 1. **注册/登录**：
    - 如果是首次使用，您需要注册一个新账户。按照提示填写相关信息（如用户名、密码等），并完成验证。
    - 已注册用户直接输入用户名和密码登录。
-      <img src="../src/img/img_login.png" alt="alt text" width="600" height="300">
+      <img src="@/img/img_login.png" alt="alt text" width="600" height="300">
 
 1. **个性化设置**：
    - 登录后，请进入设置界面，认真阅读使用手册。
@@ -28,26 +28,26 @@
 1. **普通答疑**：
    - step1：点击 **普通答疑** ，输入您的问题，积语·云伴学将快速提供详细的知识、定义、解释或示例。
    - step2：针对 **积语** 的解答，您可以继续进行提问。**积语·云伴学**支持复杂问题拆解和多轮对话，深入理解您的需求。
-      <img src="../src/img/image3.png" alt="alt text" width="600" height="290">
+      <img src="@/img/image3.png" alt="alt text" width="600" height="290">
 
 2. **批改订正**：
    - step1：点击 **批改订正** ，输入 **题目** 和 **答案** 积语·云伴学系统将检查你的作答情况，如果答案错误，积语·云伴学将通过引导您一步一步进行解答
    - step2：支持循循善诱式的答疑方式，像一位老师一样教导学生。
-      <img src="../src/img/image4.png" alt="alt text" width="600" height="290">
+      <img src="@/img/image4.png" alt="alt text" width="600" height="290">
 
 3. **个性化学习**：
    - step1：点击学习新知识，选择合适的学习方法，例如 **费曼学习法** 。
-      <img src="../src/img/image5.png" alt="alt text" width="600" height="85">
+      <img src="@/img/image5.png" alt="alt text" width="600" height="85">
    - step2：在弹出的知识库中，点击年级和所学习的知识，开始学习。
-      <img src="../src/img/image6.png" alt="alt text" width="600" height="290">
-      <img src="../src/img/image7.png" alt="alt text" width="600" height="290">
+      <img src="@/img/image6.png" alt="alt text" width="600" height="290">
+      <img src="@/img/image7.png" alt="alt text" width="600" height="290">
    - step3：学习过程分为四个部分，知识点解释、概念巩固、总结、课后习题。
-      <img src="../src/img/image8.png" alt="alt text" width="600" height="290">
+      <img src="@/img/image8.png" alt="alt text" width="600" height="290">
   
 4. **学习资料**：
    - 介绍：包含了丰富的教学资料，为学生提供良好的学习环境
    - 详情：包含 **教材全解**、**知识点总结**、**解题技巧**、**数学公式大全**
-      <img src="../src/img/image9.png" alt="alt text" width="600" height="290">
+      <img src="@/img/image9.png" alt="alt text" width="600" height="290">
 
 ### **四、基础设置**
 
@@ -55,13 +55,13 @@
 - **账号信息**：修改账号信息
 - **知识库**：包含一至六年级的所有知识点，当你在个性化学习中学会了这个知识点，你可以在此将知识点点亮。
 - **退出登录**：点击退回登陆界面。
-- ![alt text](img/image10.png)
+- ![alt text](@/img/image10.png)
 
 ### **五、使用技巧**
 
 - **文字输入**：将问题输入到发送框，点击“Send”等待大模型回答。
 - **拍照输入**：点击摄像机图标，进入摄像模式，点击确认发送图像。
-      <img src="../src/img/img_camera.png" alt="alt text" width="600" height="290">
+      <img src="@/img/img_camera.png" alt="alt text" width="600" height="290">
 
 ### **六、安全与隐私**
 

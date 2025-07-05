@@ -13,7 +13,7 @@
           <el-button type="primary" @click="$router.push('/chat')" :icon="ChatDotRound" size="large">
             智能问答
           </el-button>
-          <el-button @click="$router.push('/')" :icon="ArrowLeft">
+          <el-button @click="$router.push('/Dashboard')" :icon="ArrowLeft">
             返回主页
           </el-button>
         </div>
@@ -42,7 +42,7 @@
                   <li>已注册用户直接输入用户名和密码登录。</li>
                 </ul>
                 <div class="guide-image">
-                  <el-image src="/src/assets/img_login.png" alt="登录界面" fit="contain" />
+                  <el-image src="../img/img_login.png" alt="登录界面" fit="contain" />
                 </div>
               </div>
               
@@ -67,7 +67,7 @@
                   <li><strong>步骤2：</strong>针对 <strong>积语</strong> 的解答，您可以继续进行提问。<strong>积语·云伴学</strong>支持复杂问题拆解和多轮对话，深入理解您的需求。</li>
                 </ol>
                 <div class="guide-image">
-                  <el-image src="/src/assets/image3.png" alt="普通答疑" fit="contain" />
+                  <el-image src="../img/image3.png" alt="普通答疑" fit="contain" />
                 </div>
               </div>
               
@@ -78,7 +78,7 @@
                   <li><strong>步骤2：</strong>支持循循善诱式的答疑方式，像一位老师一样教导学生。</li>
                 </ol>
                 <div class="guide-image">
-                  <el-image src="/src/assets/image4.png" alt="批改订正" fit="contain" />
+                  <el-image src="@/img/image4.png" alt="批改订正" fit="contain" />
                 </div>
               </div>
               
@@ -87,20 +87,34 @@
                 <ol>
                   <li><strong>步骤1：</strong>点击学习新知识，选择合适的学习方法，例如 <strong>费曼学习法</strong>。</li>
                   <div class="guide-image">
-                    <el-image src="/src/assets/image5.png" alt="选择学习方法" fit="contain" />
+                    <el-image src="@/img/image5.png" alt="选择学习方法" fit="contain" />
                   </div>
                   
                   <li><strong>步骤2：</strong>在弹出的知识库中，点击年级和所学习的知识，开始学习。</li>
                   <div class="guide-image">
-                    <el-image src="/src/assets/image6.png" alt="选择知识" fit="contain" />
+                    <el-image src="@/img/image6.png" alt="选择知识" fit="contain" lazy>
+                      <template #error>
+                        <div class="image-placeholder">
+                          <el-icon><Picture /></el-icon>
+                          <span>图片加载中...</span>
+                        </div>
+                      </template>
+                    </el-image>
                   </div>
                   <div class="guide-image">
-                    <el-image src="/src/assets/image7.png" alt="选择知识" fit="contain" />
+                    <el-image src="@/img/image7.png" alt="选择知识" fit="contain" lazy>
+                      <template #error>
+                        <div class="image-placeholder">
+                          <el-icon><Picture /></el-icon>
+                          <span>图片加载中...</span>
+                        </div>
+                      </template>
+                    </el-image>
                   </div>
                   
                   <li><strong>步骤3：</strong>学习过程分为四个部分，知识点解释、概念巩固、总结、课后习题。</li>
                   <div class="guide-image">
-                    <el-image src="/src/assets/image8.png" alt="学习过程" fit="contain" />
+                    <el-image src="@/img/image8.png" alt="学习过程" fit="contain" />
                   </div>
                 </ol>
               </div>
@@ -112,7 +126,7 @@
                   <li><strong>详情：</strong>包含 <strong>教材全解</strong>、<strong>知识点总结</strong>、<strong>解题技巧</strong>、<strong>数学公式大全</strong></li>
                 </ul>
                 <div class="guide-image">
-                  <el-image src="/src/assets/image9.png" alt="学习资料" fit="contain" />
+                  <el-image src="@/img/image9.png" alt="学习资料" fit="contain" />
                 </div>
               </div>
             </div>
@@ -130,7 +144,7 @@
                   <li><strong>退出登录：</strong>点击退回登陆界面。</li>
                 </ul>
                 <div class="guide-image">
-                  <el-image src="/src/assets/image10.png" alt="基础设置" fit="contain" />
+                  <el-image src="@/img/image10.png" alt="基础设置" fit="contain" />
                 </div>
               </div>
             </div>
@@ -146,7 +160,7 @@
                   <li><strong>拍照输入：</strong>点击摄像机图标，进入摄像模式，点击确认发送图像。</li>
                 </ul>
                 <div class="guide-image">
-                  <el-image src="/src/assets/img_camera.png" alt="拍照功能" fit="contain" />
+                  <el-image src="@/img/img_camera.png" alt="拍照功能" fit="contain" />
                 </div>
               </div>
             </div>
@@ -180,7 +194,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import ScrollContainer from '@/components/common/ScrollContainer.vue'
-import { Reading, ChatDotRound, ArrowLeft } from '@element-plus/icons-vue'
+import { Reading, ChatDotRound, ArrowLeft, Picture } from '@element-plus/icons-vue'
 
 const router = useRouter()
 
@@ -288,6 +302,23 @@ onMounted(() => {
       max-height: 400px;
       border-radius: 8px;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .image-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      background-color: #f5f7fa;
+      border: 1px dashed #c0c4cc;
+      border-radius: 8px;
+      color: #909399;
+      
+      .el-icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
     }
   }
 }

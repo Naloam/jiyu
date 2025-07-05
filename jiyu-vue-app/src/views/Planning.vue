@@ -1,5 +1,9 @@
 <template>
   <ScrollContainer class="planning-container" height="100vh">
+    <!-- 全局顶部工具栏 -->
+    <GlobalToolbar     />
+    <!-- 背景图片 -->
+    <div class="background"></div>
     <!-- 页面头部 -->
     <div class="planning-header">
       <div class="header-content">
@@ -14,7 +18,7 @@
           <el-button type="primary" @click="$router.push('/chat')" :icon="ChatDotRound" size="large">
             智能问答
           </el-button>
-          <el-button @click="$router.push('/')" :icon="ArrowLeft">
+          <el-button @click="$router.push('/Dashboard')" :icon="ArrowLeft">
             返回主页
           </el-button>
         </div>
@@ -83,6 +87,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import ScrollContainer from '@/components/common/ScrollContainer.vue'
 import { Calendar, ChatDotRound, ArrowLeft } from '@element-plus/icons-vue'
+import GlobalToolbar from '@/components/common/GlobalToolbar.vue'
 
 const router = useRouter()
 
@@ -150,6 +155,21 @@ onMounted(() => {
   --primary-color: #a4f5ec;
   --secondary-color: #048d65;
   --background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* 背景 */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 .planning-container {

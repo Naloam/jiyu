@@ -1,6 +1,4 @@
 <template>
-  <!-- Debug: 确认 Login.vue 组件已渲染 -->
-  <p style="position:absolute;top:0;left:0;background:rgba(255,0,0,0.7);color:#fff;z-index:1000;padding:4px;">DEBUG: Login.vue 渲染</p>
   <div class="login-page">
     <div class="login-container">
       <div class="login-form">

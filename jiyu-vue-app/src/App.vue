@@ -1,7 +1,5 @@
 <template>
   <div id="app" class="app-container">
-    <!-- DEBUG: App.vue 渲染 -->
-    <div style="position:absolute;top:0;right:0;background:red;color:#fff;padding:4px;z-index:999">DEBUG App</div>
     <router-view></router-view>
   </div>
 </template>

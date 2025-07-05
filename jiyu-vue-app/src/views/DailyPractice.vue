@@ -1,5 +1,9 @@
 <template>
   <ScrollContainer class="daily-practice-container" height="100vh">
+    <!-- 全局顶部工具栏 -->
+    <GlobalToolbar   />
+    <!-- 背景图片 -->
+    <div class="background"></div>
     <!-- 页面头部 -->
     <div class="practice-header">
       <div class="header-content">
@@ -14,7 +18,7 @@
           <el-button type="primary" @click="$router.push('/chat')" :icon="ChatDotRound" size="large">
             智能问答
           </el-button>
-          <el-button @click="$router.push('/')" :icon="ArrowLeft">
+          <el-button @click="$router.push('/Dashboard')" :icon="ArrowLeft">
             返回主页
           </el-button>
         </div>
@@ -194,6 +198,7 @@
 </template>
 
 <script setup lang="ts">
+import GlobalToolbar from '@/components/common/GlobalToolbar.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import ScrollContainer from '@/components/common/ScrollContainer.vue'
@@ -384,6 +389,7 @@ const showHint = () => {
   ElMessage.info('提示：仔细分析题目要求，考虑时间和空间复杂度')
 }
 
+
 onMounted(() => {
   console.log('每日刷题页面已加载')
 })
@@ -393,6 +399,21 @@ onMounted(() => {
 .daily-practice-container {
   padding: 20px;
   background-color: #f5f7fa;
+}
+
+/* 背景 */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 .practice-header {
